@@ -3,7 +3,7 @@ name: Deploy Blazor WebAssembly to GitHub Pages
 on:
   push:
     branches:
-      - main  # or 'master' if that’s your default branch
+      - main  # Replace with your default branch if different
 
 jobs:
   deploy:
@@ -16,13 +16,17 @@ jobs:
       - name: Set up .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '8.x' # or your Blazor project version
+          dotnet-version: '8.x'  # Specify your .NET version
+
+      - name: Navigate to project directory
+        run: cd LightHouseScanner/LightHouseScanner
 
       - name: Build the project
         run: dotnet publish -c Release -o out
+        working-directory: LightHouseScanner/LightHouseScanner
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./out
+          publish_dir: ./LightHouseScanner/LightHouseScanner/out
