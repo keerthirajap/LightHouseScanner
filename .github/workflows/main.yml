@@ -3,7 +3,7 @@ name: Deploy Blazor WebAssembly to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust this to match your  default branch
+      - main  # Adjust this to match your default branch
 
 jobs:
   deploy:
@@ -27,4 +27,4 @@ jobs:
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
           publish_dir: LightHouseScanner/LightHouseScanner/out
-          publish_branch: gh-pages-1  # Ensure this is the correct branch nam
+          publish_branch: gh-pages-1  # Ensure this is the correct branch name
