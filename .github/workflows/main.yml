@@ -26,5 +26,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PAT_TOKEN }}
-          publish_dir: LightHouseScanner/LightHouseScanner/out
-          publish_branch: gh-pages-1  # Ensure this is the correct branch name 
+          publish_dir: LightHouseScanner/LightHouseScanner/out  # Verify this path
+          publish_branch: gh-pages-1
