@@ -5,8 +5,8 @@
 
     public class DomainOrSubdomainAttribute : ValidationAttribute
     {
-        private static readonly Regex UrlRegex = new Regex(
-            @"^(?:http[s]?://)?(?:www\.)?(?<subdomain>[^/\.]+)\.(?<domain>[^/\.]+)\.(?<tld>[^/\.]+)$",
+        private static readonly Regex DomainRegex = new Regex(
+            @"^(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$",
             RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
@@ -18,14 +18,16 @@
                 return new ValidationResult("URL cannot be null or empty.");
             }
 
-            var uri = new Uri(url, UriKind.Absolute);
-
-            if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            // Create a Uri object to ensure it's a well-formed URL
+            if (!Uri.TryCreate(url, UriKind.Absolute, out var uri) || uri.Scheme != Uri.UriSchemeHttp && uri.Scheme != Uri.UriSchemeHttps)
             {
                 return new ValidationResult("Invalid URL format.");
             }
 
-            var match = UrlRegex.Match(uri.Host);
+            // Check if the URL host matches the regex for domain or subdomain
+            var host = uri.Host;
+
+            var match = DomainRegex.Match(host);
             if (!match.Success)
             {
                 return new ValidationResult("URL does not contain a valid domain or subdomain.");

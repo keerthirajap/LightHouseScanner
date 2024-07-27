@@ -55,12 +55,8 @@
 
 </section>
 
-@if (WebsiteAuditData != null)
+@if (WebsiteAuditData != null && !string.IsNullOrEmpty(WebsiteAuditData.DomainName))
 {
-
-
-
-
     <section id="features" class="features section">
 
         <!-- Section Title -->
@@ -171,7 +167,7 @@
     {
         isLoading = true;
         errorMessage = string.Empty;
-
+        WebsiteAuditData = new WebsiteData();
         try
         {
             // Validate the URL (basic validation)

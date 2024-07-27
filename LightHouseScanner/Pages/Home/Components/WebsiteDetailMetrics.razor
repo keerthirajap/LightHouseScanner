@@ -41,7 +41,7 @@
             </p>
             <p class="mb-0">
                 <span class="fw-medium fs-7">
-                    @Website.CreatedOn.ToString("yyyy-MM-dd")
+                    @Website.CreatedOn.ToString("MMMM dd yyyy HH:mm:ss")
                 </span>
             </p>
         </div>
@@ -54,7 +54,7 @@
             </p>
             <p class="mb-0">
                 <span class="fw-medium fs-7">
-                    @Website.LastScan.ToString("yyyy-MM-dd")
+                    @Website.LastScan.ToString("MMMM dd yyyy HH:mm:ss")
                 </span>
             </p>
         </div>
@@ -66,9 +66,15 @@
             </p>
             <p class="mb-0">
                 <span class="fw-medium fs-7">
-                    <img src='@string.Concat("/images/Flags-Icon-Set/" + createdIpDetails.countryCode + ".png")'
-                         class="rounded me-1 mb-1" style="height: 24px;" />
-                    @createdIpDetails.query
+
+                    @if (!string.IsNullOrEmpty(Website.LastScanIPAddress))
+                    {
+                        <span class="fw-medium fs-7">
+                            <img src='@string.Concat("/images/Flags-Icon-Set/" + createdIpDetails.countryCode + ".png")'
+                                 class="rounded me-1 mb-1" style="height: 24px;" />
+                            @createdIpDetails.query
+                        </span>
+                    }
                 </span>
             </p>
         </div>
