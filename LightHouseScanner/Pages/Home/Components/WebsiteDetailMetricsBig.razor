@@ -10,7 +10,7 @@
     <div class="row ps-4">
         <div class="col-6">
             <p class="mb-0">
-                <span class="fw-lighter fs-6">
+                <span class="fw-light fs-6">
                     Page Load Time
                 </span>
             </p>
@@ -22,7 +22,7 @@
         </div>
         <div class="col-6">
             <p class="mb-0">
-                <span class="fw-lighter fs-6">
+                <span class="fw-light fs-6">
                     Server Response Time
                 </span>
             </p>
@@ -35,48 +35,48 @@
 
         <div class="col-6 mt-3">
             <p class="mb-0">
-                <span class="fw-lighter fs-6">
+                <span class="fw-light fs-6">
                     First Scan Date
                 </span>
             </p>
             <p class="mb-0">
                 <span class="fw-medium fs-5">
-                    @Website.CreatedOn.ToString("MMMM dd yyyy HH:mm:ss")
+                    @Website.CreatedOn.ToString("MMM dd yyyy HH:mm:ss UTC")
                 </span>
             </p>
         </div>
 
         <div class="col-6 mt-3">
             <p class="mb-0">
-                <span class="fw-lighter fs-6">
+                <span class="fw-light fs-6">
                     Last Scan Date
                 </span>
             </p>
             <p class="mb-0">
                 <span class="fw-medium fs-5">
-                    @Website.LastScan.ToString("MMMM dd yyyy HH:mm:ss")
+                    @Website.LastScan.ToString("MMM dd yyyy HH:mm:ss UTC")
                 </span>
             </p>
         </div>
-        <div class="col-6 mt-3">
+        <div class="col-12 mt-3">
             <p class="mb-0">
-                <span class="fw-lighter fs-6">
+                <span class="fw-light fs-6">
                     First Scan IP Address
                 </span>
             </p>
             <p class="mb-0">
                 <span class="fw-medium fs-5">
                     <img src='@string.Concat("/images/Flags-Icon-Set/" + createdIpDetails.countryCode + ".png")'
-                         class="rounded me-1 mb-1" style="height: 24px;" />
+                         class="rounded me-1 mb-1" style="height: 32px;" />
                     @createdIpDetails.query
                 </span>
             </p>
         </div>
 
 
-        <div class="col-6 mt-3">
+        <div class="col-12 mt-3">
             <p class="mb-0">
-                <span class="fw-lighter fs-6">
+                <span class="fw-light fs-6">
                     Last Scan IP Address
                 </span>
             </p>
@@ -85,7 +85,7 @@
                 {
                     <span class="fw-medium fs-5">
                         <img src='@string.Concat("/images/Flags-Icon-Set/" + lastScanIpDetails.countryCode + ".png")'
-                             class="rounded me-1 mb-1" style="height: 24px;" />
+                             class="rounded me-1 mb-1" style="height: 32px;" />
                         @lastScanIpDetails.query
                     </span>
                 }
