@@ -1,25 +1,21 @@
-﻿@using LightHouseScanner.Extensions
-@using LightHouseScanner.Models
-@using LightHouseScanner.Services
-@using LightHouseScanner.Pages.Home.Components
-
-<PageTitle>Home</PageTitle>
+﻿<PageTitle>Home</PageTitle>
 @inject ApiService ApiService
 
-<!-- Blog Posts Section -->
+
 <section id="blog-posts" class="blog-posts section">
+    <div class="container section-title" data-aos="fade-up">
+        <h2>5 Best Page Speed Scores</h2>
+        <p>View the websites with the highest overall performance scores. Analyze their success factors and implement similar strategies.</p>
+    </div>
 
-
-    <div class="container my-4">
+    <div class="container my-0">
         <div class="row">
             @if (websiteDataList != null && websiteDataList.Any())
             {
                 @foreach (var website in websiteDataList)
                 {
                     <div class="col-lg-4 mb-4">
-                        <article class="card shadow-sm p-1">
-
-
+                        <div class="card shadow-sm p-1">
                             <div class="card-img-top p-0">
                                 @if (!string.IsNullOrEmpty(website.FinalScreenshot))
                                 {
@@ -37,95 +33,63 @@
                                     </a>
                                 </h5>
 
-                                <div class="row mt-2">
-                                    <div class="col-6 col-md-6 col-lg-6 col-xl-6 text-center mt-1">
-                                        <div class="inner-content text-center m-1 m-md-0">
-                                            <div class="c100 center @string.Format("p" + @website.Performance) @HTMLExtensions.GetCSSPercentageClass(@website.Performance.ToString())" style="@MetricsFontSize">
-                                                <span>@website.Performance</span>
-                                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                                            </div>
-                                        </div>
-                                        <p class="text-secondary pt-1">Performance</p>
-                                    </div>
+                                @* <div class="col-12 text-center p-0">
+                                    <i class="fa-solid fa-circle-check fa-beat me-1 font-size-14px"></i>
+                                    <a class="anchor-hover1" data-bs-toggle="collapse" href="#collapse-Domain_@website.Id"
+                                       role="button" aria-expanded="false" aria-controls="collapse-Domain_@website.Id">
+                                        Website Audit Report
+                                    </a>
+                                </div> *@
 
-                                    <div class="col-6 col-md-6 col-lg-6 col-xl-6 text-center mt-1">
-                                        <div class="inner-content text-center m-1 m-md-0">
-                                            <div class="c100 center @string.Format("p" + @website.Accessibility) @HTMLExtensions.GetCSSPercentageClass(@website.Accessibility.ToString())" style="@MetricsFontSize">
-                                                <span>@website.Accessibility</span>
-                                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                                            </div>
-                                        </div>
-                                        <p class="text-secondary pt-1">Accessibility</p>
-                                    </div>
+                                <div class="collapse1" id="collapse-Domain_@website.Id">
 
-                                    <div class="col-6 col-md-6 col-lg-6 col-xl-6 text-center mt-1">
-                                        <div class="inner-content text-center m-1 m-md-0">
-                                            <div class="c100 center @string.Format("p" + @website.BestPractices) @HTMLExtensions.GetCSSPercentageClass(@website.BestPractices.ToString())" style="@MetricsFontSize">
-                                                <span>@website.BestPractices</span>
-                                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
-                                            </div>
-                                        </div>
-                                        <p class="text-secondary pt-1">Best Practices</p>
-                                    </div>
+                                    <div class="row mt-3">
 
-                                    <div class="col-6 col-md-6 col-lg-6 col-xl-6 text-center mt-1">
-                                        <div class="inner-content text-center m-1 m-md-0">
-                                            <div class="c100 center @string.Format("p" + @website.Seo) @HTMLExtensions.GetCSSPercentageClass(@website.Seo.ToString())" style="@MetricsFontSize">
-                                                <span>@website.Seo</span>
-                                                <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                        <div class="col-4 text-center mt-1">
+                                            <div class="inner-content text-center m-1 m-md-0">
+                                                <div class="c100 center @string.Format("p" + @website.Performance) @CommonExtensions.GetCSSPercentageClass(@website.Performance.ToString())" style="@MetricsFontSize">
+                                                    <span>@website.Performance</span>
+                                                    <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                                </div>
                                             </div>
+                                            <p class="text-secondary pt-1">Performance</p>
                                         </div>
-                                        <p class="text-secondary pt-1">SEO</p>
+
+                                        <div class="col-4 text-center mt-1">
+                                            <div class="inner-content text-center m-1 m-md-0">
+                                                <div class="c100 center @string.Format("p" + @website.Accessibility) @CommonExtensions.GetCSSPercentageClass(@website.Accessibility.ToString())" style="@MetricsFontSize">
+                                                    <span>@website.Accessibility</span>
+                                                    <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                                </div>
+                                            </div>
+                                            <p class="text-danger pt-1">Accessibility</p>
+                                        </div>
+
+                                        <div class="col-4 text-center mt-1">
+                                            <div class="inner-content text-center m-1 m-md-0">
+                                                <div class="c100 center @string.Format("p" + @website.BestPractices) @CommonExtensions.GetCSSPercentageClass(@website.BestPractices.ToString())" style="@MetricsFontSize">
+                                                    <span>@website.BestPractices</span>
+                                                    <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                                </div>
+                                            </div>
+                                            <p class="text-success pt-1">Best Practices</p>
+                                        </div>
+
+                                        <div class="col-12 text-center mt-1">
+                                            <div class="inner-content text-center m-1 m-md-0">
+                                                <div class="c100 center @string.Format("p" + @website.Seo) @CommonExtensions.GetCSSPercentageClass(@website.Seo.ToString())" style="@MetricsFontSize">
+                                                    <span>@website.Seo</span>
+                                                    <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                                </div>
+                                            </div>
+                                            <p class="text-primary pt-1 fs-5">SEO</p>
+                                        </div>
                                     </div>
+                                    <hr class="horizontal dark mt-0">
+                                    <WebsiteDetailMetrics Website="website" />
                                 </div>
-                                <hr class="horizontal dark mt-0">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="card-text">
-                                            Page Load Time
-                                            <br> <strong> @website.PageLoadTime ms </strong>
-                                        </p>
-                                    </div>
-                                    <div class="col-6">
-                                        <p class="card-text">
-                                            Server Response Time
-                                            <br> <strong> @website.ServerResponseTime ms </strong>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-6 mt-2">
-                                        <p class="card-text">
-                                            First Scan Date
-                                            <br> <strong> @website.CreatedOn.ToString("yyyy-MM-dd") </strong>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-6 mt-2">
-                                        <p class="card-text">
-                                            Last Scan Date
-                                            <br> <strong> @website.LastScan.ToString("yyyy-MM-dd") </strong>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-6 mt-2">
-                                        <p class="card-text">
-                                            First Scan IP Address
-                                            <br> <strong> @website.CreatedOn.ToString("yyyy-MM-dd") </strong>
-                                        </p>
-                                    </div>
-
-                                    <div class="col-6 mt-2">
-                                        <p class="card-text">
-                                            Last Scan IP Address
-                                            <br> <strong> @website.LastScan.ToString("yyyy-MM-dd") </strong>
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <p class="card-text"><strong>Created IP Info:</strong> @website.CreatedIPAddress</p>
-                                <p class="card-text"><strong>Last Scan IP Info:</strong> @website.LastScanIPAddress</p>
                             </div>
-                        </article>
+                        </div>
                     </div>
                 }
             }

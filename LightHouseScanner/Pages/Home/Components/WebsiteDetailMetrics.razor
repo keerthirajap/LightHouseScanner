@@ -1,0 +1,95 @@
+﻿@code {
+    [Parameter]
+    public WebsiteData Website { get; set; } = new WebsiteData();
+}
+
+@{
+    var createdIpDetails = CommonExtensions.GetIPAddressDetails(Website.CreatedIPAddress);
+    var lastScanIpDetails = CommonExtensions.GetIPAddressDetails(Website.LastScanIPAddress);
+
+    <div class="row">
+        <div class="col-6">
+            <p class="mb-0">
+                <span class="fw-lighter fs-8">
+                    Page Load Time
+                </span>
+            </p>
+            <p class="mb-0">
+                <span class="fw-medium fs-7">
+                    @Website.PageLoadTime ms
+                </span>
+            </p>
+        </div>
+        <div class="col-6">
+            <p class="mb-0">
+                <span class="fw-lighter fs-8">
+                    Server Response Time
+                </span>
+            </p>
+            <p class="mb-0">
+                <span class="fw-medium fs-7">
+                    @Website.ServerResponseTime ms
+                </span>
+            </p>
+        </div>
+
+        <div class="col-6 mt-1">
+            <p class="mb-0">
+                <span class="fw-lighter fs-8">
+                    First Scan Date
+                </span>
+            </p>
+            <p class="mb-0">
+                <span class="fw-medium fs-7">
+                    @Website.CreatedOn.ToString("yyyy-MM-dd")
+                </span>
+            </p>
+        </div>
+
+        <div class="col-6 mt-1">
+            <p class="mb-0">
+                <span class="fw-lighter fs-8">
+                    Last Scan Date
+                </span>
+            </p>
+            <p class="mb-0">
+                <span class="fw-medium fs-7">
+                    @Website.LastScan.ToString("yyyy-MM-dd")
+                </span>
+            </p>
+        </div>
+        <div class="col-6 mt-1">
+            <p class="mb-0">
+                <span class="fw-lighter fs-8">
+                    First Scan IP Address
+                </span>
+            </p>
+            <p class="mb-0">
+                <span class="fw-medium fs-7">
+                    <img src='@string.Concat("/images/Flags-Icon-Set/" + createdIpDetails.countryCode + ".png")'
+                         class="rounded me-1 mb-1" style="height: 24px;" />
+                    @createdIpDetails.query
+                </span>
+            </p>
+        </div>
+
+
+        <div class="col-6 mt-1">
+            <p class="mb-0">
+                <span class="fw-lighter fs-8">
+                    Last Scan IP Address
+                </span>
+            </p>
+            <p class="mb-0">
+                @if (!string.IsNullOrEmpty(Website.LastScanIPAddress))
+                {
+                    <span class="fw-medium fs-7">
+                        <img src='@string.Concat("/images/Flags-Icon-Set/" + lastScanIpDetails.countryCode + ".png")'
+                             class="rounded me-1 mb-1" style="height: 24px;" />
+                        @lastScanIpDetails.query
+                    </span>
+                }
+            </p>
+        </div>
+    </div>
+}
