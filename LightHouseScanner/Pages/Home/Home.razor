@@ -1,0 +1,115 @@
+﻿@page "/"
+@using LightHouseScanner.Models
+@using LightHouseScanner.Services
+@using LightHouseScanner.Pages.Home.Components
+
+<PageTitle>Home</PageTitle>
+@inject ApiService ApiService
+
+
+@if (websiteDataList != null)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Domain Name</th>
+                <th>Performance</th>
+                <th>Accessibility</th>
+                <th>Best Practices</th>
+                <th>SEO</th>
+                <th>Page Load Time</th>
+                <th>Server Response Time</th>
+                <th>Created On</th>
+                <th>Last Scan</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var website in websiteDataList)
+            {
+                <tr>
+                    <td>@website.Id</td>
+                    <td>@website.DomainName</td>
+                    <td>@website.Performance</td>
+                    <td>@website.Accessibility</td>
+                    <td>@website.BestPractices</td>
+                    <td>@website.Seo</td>
+                    <td>@website.PageLoadTime</td>
+                    <td>@website.ServerResponseTime</td>
+                    <td>@website.CreatedOn.ToString("yyyy-MM-ddTHH:mm:ss")</td>
+                    <td>@website.LastScan.ToString("yyyy-MM-ddTHH:mm:ss")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@* <button @onclick="FetchAndSaveLighthouseReport">Fetch and Save Lighthouse Report</button>
+<button @onclick="FetchTop10ReScannedWebsites">Fetch Top 10 Re-Scanned Websites</button>
+<button @onclick="FetchLast10ScannedWebsites">Fetch Last 10 Scanned Websites</button>
+<button @onclick="FetchTop10BestWebsites">Fetch Top 10 Best Websites</button>
+ *@
+<HomeContents />
+<Top10BestWebsites />
+
+@code {
+    private List<WebsiteData> websiteDataList;
+
+    private async Task FetchAndSaveLighthouseReport()
+    {
+        var response = await ApiService.FetchAndSaveLighthouseReportAsync("http://example.com");
+        if (response.IsSuccessStatusCode)
+        {
+            websiteDataList = await response.Content.ReadFromJsonAsync<List<WebsiteData>>();
+        }
+        else
+        {
+            // Handle error
+            websiteDataList = new List<WebsiteData>();
+        }
+    }
+
+    private async Task FetchTop10ReScannedWebsites()
+    {
+        var response = await ApiService.FetchTop10ReScannedWebsitesAsync();
+        if (response.IsSuccessStatusCode)
+        {
+            websiteDataList = await response.Content.ReadFromJsonAsync<List<WebsiteData>>();
+        }
+        else
+        {
+            // Handle error
+            websiteDataList = new List<WebsiteData>();
+        }
+    }
+
+    private async Task FetchLast10ScannedWebsites()
+    {
+        var response = await ApiService.FetchLast10ScannedWebsitesAsync();
+        if (response.IsSuccessStatusCode)
+        {
+            websiteDataList = await response.Content.ReadFromJsonAsync<List<WebsiteData>>();
+        }
+        else
+        {
+            // Handle error
+            websiteDataList = new List<WebsiteData>();
+        }
+    }
+
+
+
+    private async Task FetchTop10BestWebsites()
+    {
+        var response = await ApiService.FetchTop10BestWebsitesAsync();
+        if (response.IsSuccessStatusCode)
+        {
+            websiteDataList = await response.Content.ReadFromJsonAsync<List<WebsiteData>>();
+        }
+        else
+        {
+            // Handle error
+            websiteDataList = new List<WebsiteData>();
+        }
+    }
+}
