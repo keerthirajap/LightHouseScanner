@@ -58,6 +58,9 @@
 @if (WebsiteAuditData != null)
 {
 
+
+
+
     <section id="features" class="features section">
 
         <!-- Section Title -->
@@ -66,23 +69,74 @@
         </div><!-- End Section Title -->
 
         <div class="container">
+            <div class="card shadow-sm p-4">
+                <div class="row gy-4 align-items-stretch justify-content-between features-item ">
+                    <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
+                        <img src="@WebsiteAuditData.FinalScreenshot" style="border:none !important" class="img-fluid rounded shadow p-0 m-0 bg-body-tertiary rounded" alt="">
+                    </div>
 
-            <div class="row gy-4 align-items-stretch justify-content-between features-item ">
-                <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
-                    <img src="@WebsiteAuditData.FinalScreenshot" class="img-fluid" alt="">
-                </div>
-                <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
-                    <h3>Sunt consequatur ad ut est nulla</h3>
-                    <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
-                    <ul>
-                        <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                        <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                        <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
-                    </ul>
-                    <a href="#" class="btn btn-get-started align-self-start">Get Started</a>
-                </div>
-            </div><!-- Features Item -->
+                    <div class="col-lg-6">
 
+                        <div class="row ps-2">
+                            <div class="col-12 mb-3">
+                                <h5 class="card-title text-center mt-2">
+                                    <a href="@WebsiteAuditData.DomainName" target="_blank" class="anchor-hover fs-3">
+                                        @WebsiteAuditData.DomainName
+                                    </a>
+                                </h5>
+                            </div>
+
+                            <div class="col-md-3 text-center">
+                                <div class="inner-content text-center m-1 m-md-0">
+                                    <div class="c100 center @string.Format("p" + @WebsiteAuditData.Performance) @CommonExtensions.GetCSSPercentageClass(@WebsiteAuditData.Performance.ToString())" style="@MetricsFontSize">
+                                        <span>@WebsiteAuditData.Performance</span>
+                                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                    </div>
+                                </div>
+                                <p class="text-success pt-1 fs-5">Performance</p>
+                            </div>
+                            
+                            <div class="col-md-3 text-center">
+                                <div class="inner-content text-center m-1 m-md-0">
+                                    <div class="c100 center @string.Format("p" + @WebsiteAuditData.Accessibility) @CommonExtensions.GetCSSPercentageClass(@WebsiteAuditData.Accessibility.ToString())" style="@MetricsFontSize">
+                                        <span>@WebsiteAuditData.Accessibility</span>
+                                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                    </div>
+                                </div>
+                                <p class="text-success pt-1 fs-5">Accessibility</p>
+                            </div>
+
+                            <div class="col-md-3 text-center">
+                                <div class="inner-content text-center m-1 m-md-0">
+                                    <div class="c100 center @string.Format("p" + @WebsiteAuditData.BestPractices) @CommonExtensions.GetCSSPercentageClass(@WebsiteAuditData.BestPractices.ToString())" style="@MetricsFontSize">
+                                        <span>@WebsiteAuditData.BestPractices</span>
+                                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                    </div>
+                                </div>
+                                <p class="text-success pt-1 fs-5">Best Practices</p>
+                            </div>
+
+                            <div class="col-md-3 text-center">
+                                <div class="inner-content text-center m-1 m-md-0">
+                                    <div class="c100 center @string.Format("p" + @WebsiteAuditData.Seo) @CommonExtensions.GetCSSPercentageClass(@WebsiteAuditData.Seo.ToString())" style="@MetricsFontSize">
+                                        <span>@WebsiteAuditData.Seo</span>
+                                        <div class="slice"><div class="bar"></div><div class="fill"></div></div>
+                                    </div>
+                                </div>
+                                <p class="text-success pt-1 fs-5">SEO</p>
+                            </div>
+
+                            <div class="col-12 mt-2">
+                                <WebsiteDetailMetricsBig Website="WebsiteAuditData" />
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+
+
+            </div>
         </div>
 
     </section>
@@ -97,6 +151,7 @@
     private bool isLoading = false;
     private bool isSuccess = false;
     private string errorMessage = string.Empty;
+    public string MetricsFontSize { get; set; } = "";
 
     public class SearchModel
     {
@@ -105,6 +160,11 @@
         [DomainOrSubdomain(ErrorMessage = "URL does not contain a valid domain or subdomain.")]
 
         public string Url { get; set; }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MetricsFontSize = "font-size: 100px !important;";
     }
 
     private async Task HandleSubmit()
