@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "LightHouseScanner",
   "resources": {
-    "hash": "sha256-KLY9znXpFiw1AuU0YbpIos//GqF/aCGPK5oCDW74yb4=",
+    "hash": "sha256-7FwqqSJp7XCYCQfQymUahZBLwWkL1a68BkTV58ZyM1w=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.pvkr2na9g4.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -17,7 +17,7 @@
       "icudt_no_CJK.dat": "sha256-L7sV7NEYP37/Qr2FPCePo5cJqRgTXRwGHuwF5Q+0Nfs="
     },
     "assembly": {
-      "LightHouseScanner.wasm": "sha256-Fyi1UrYaEpgaV3R3trLVGsVGJwVHUk1Ukky8eQ/lzNA=",
+      "LightHouseScanner.wasm": "sha256-2anX5AeIKKUC68MohVztIx2a1eP/qUW9rZEjuNy7Qjo=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-xqauWohrkDJFCGzVQPDdf2XSJD89zflheRYyFmy4ssE=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-Cke5mEYpR372KWH7bD+FWN1NF+F9u1nbLs08dkFMMCU=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-ZS2MQdg2otOPc23s2IpqxldMH3ZZsHm/PZLPhZcFU8M=",
