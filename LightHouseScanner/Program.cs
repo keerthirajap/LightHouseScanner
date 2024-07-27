@@ -4,6 +4,7 @@ namespace LightHouseScanner
     using Microsoft.AspNetCore.Components.Web;
     using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
     using Microsoft.Extensions.DependencyInjection;
+    using Toolbelt.Blazor.Extensions.DependencyInjection;
 
     public class Program
     {
@@ -13,17 +14,27 @@ namespace LightHouseScanner
             builder.RootComponents.Add<App>("#app");
             builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddHttpClient("DefaultHttpClient", client =>
+            builder.Services.AddLoadingBar(options =>
             {
-                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+                options.LoadingBarColor = "blue";
+                options.ContainerSelector = "#selector-of-container";
             });
 
-            builder.Services.AddHttpClient("ApiHttpClient", client =>
+            builder.Services.AddHttpClient("DefaultHttpClient", (sp, client) =>
+            {
+                client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
+                client.EnableIntercept(sp);
+            });
+
+            builder.Services.AddHttpClient("ApiHttpClient", (sp, client) =>
             {
                 client.BaseAddress = new Uri("https://website-lighthouse-seo-scanner-online.niraiyaemailaccounts.workers.dev/");
+                client.EnableIntercept(sp);
             });
 
             builder.Services.AddScoped<ApiService>();
+
+            builder.UseLoadingBar();
 
             await builder.Build().RunAsync();
         }
