@@ -1,4 +1,6 @@
-﻿@inject IJSRuntime JSRuntime
+﻿@using System.Timers;
+
+@inject IJSRuntime JSRuntime
 @inject ApiService ApiService
 
 <section id="hero" class="hero section dark-background">
@@ -9,21 +11,35 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="display-1 fw-normal mb-5" data-aos="fade-up" data-aos-delay="100">SiteScan+ - Instant Website SEO Insights</h1>
+                <h1 class="display-1 fw-normal mb-5" data-aos="fade-up" data-aos-delay="100">SiteScan+ Instant Website SEO Insights</h1>
                 <h2 class="display-6 fw-light mb-4" data-aos="fade-up" data-aos-delay="200">
-                    Site Scan Plus delivers quick and accurate insights of your website's performance using Google Lighthouse.
+                    Site Scan Plus, delivers quick and accurate insights of your Home Page performance using Google Lighthouse.
                 </h2>
             </div>
 
             <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
                 <EditForm Model="@searchModel" OnValidSubmit="HandleSubmit" class="php-email-form">
-
-
                     <div class="sign-up-form">
                         <InputText @bind-Value="searchModel.Url" placeholder="Enter Your URL or Company Website to scan..."
                                    type="text" class="form-control m-0" />
 
-                        <button type="submit" class="btn btn-primary ms-2 ps-4 pe-4 btn-lg">Scan</button>
+                        @if (ButtonEnableDisable)
+                        {
+
+                            <button type="submit" class="btn btn-primary ms-2 ps-4 pe-4 btn-lg text-nowrap">
+                                <i class="fa-solid fa-magnifying-glass me-2"></i>
+                                Scan
+                            </button>
+                        }
+                        else
+                        {
+                            <button disabled type="submit" class="btn btn-primary ms-2 ps-4 pe-4 btn-lg text-nowrap">
+                                <span>
+                                    <i class="fa-solid fa-spinner fa-spin-pulse me-2"></i>
+                                    Scanning (@AdSenceApprovalCheckerTimerSecs)
+                                </span>
+                            </button>
+                        }
                     </div>
                     <DataAnnotationsValidator />
                     <ValidationSummary />
@@ -43,8 +59,109 @@
             </div>
         </div>
     </div>
-
 </section>
+
+@code {
+
+    private SearchModel searchModel = new SearchModel();
+    private WebsiteData WebsiteAuditData;
+    private bool isLoading = false;
+    private bool isSuccess = false;
+    private string errorMessage = string.Empty;
+    public string MetricsFontSize { get; set; } = "";
+
+    public bool ButtonEnableDisable = true;
+    private Timer AdSenceApprovalCheckerTimer;
+    private int AdSenceApprovalCheckerTimerSecs = 50;
+
+    public class SearchModel
+    {
+        [Required(ErrorMessage = "URL is required.")]
+        [Url(ErrorMessage = "Invalid URL format.")]
+        [DomainOrSubdomain(ErrorMessage = "URL does not contain a valid domain or subdomain.")]
+        public string Url { get; set; }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        MetricsFontSize = "font-size: 100px !important;";
+        SetupTimer();
+    }
+
+    private void SetupTimer()
+    {
+        AdSenceApprovalCheckerTimer = new Timer(1000);
+        AdSenceApprovalCheckerTimer.Elapsed += AdSenceApprovalCheckerTimerAsync;
+    }
+
+    private async Task HandleSubmit()
+    {
+        isLoading = true;
+        errorMessage = string.Empty;
+        WebsiteAuditData = new WebsiteData();
+        ButtonEnableDisable = false;
+        AdSenceApprovalCheckerTimerSecs = 50;
+        AdSenceApprovalCheckerTimer.Enabled = true;
+        AdSenceApprovalCheckerTimer.Start();
+        StateHasChanged();
+
+        try
+        {
+            // Validate the URL (basic validation)
+            if (!Uri.IsWellFormedUriString(searchModel.Url, UriKind.Absolute))
+            {
+                errorMessage = "Invalid URL format.";
+                return;
+            }
+
+            // Simulate an HTTP POST request
+            var response = await ApiService.FetchAndSaveLighthouseReportAsync(searchModel.Url);
+            if (response.IsSuccessStatusCode)
+            {
+                WebsiteAuditData = await response.Content.ReadFromJsonAsync<WebsiteData>();
+                await JSRuntime.InvokeVoidAsync("scrollDown");
+                isSuccess = true;
+            }
+            else
+            {
+                // Handle error
+                errorMessage = "An error occurred while fetching the report.";
+                WebsiteAuditData = new WebsiteData();
+            }
+        }
+        catch (Exception ex)
+        {
+            errorMessage = $"An error occurred: {ex.Message}";
+        }
+        finally
+        {
+            StopTimer();
+            isLoading = false;
+        }
+    }
+
+    private void AdSenceApprovalCheckerTimerAsync(object sender, ElapsedEventArgs e)
+    {
+        if (AdSenceApprovalCheckerTimerSecs > 0)
+        {
+            AdSenceApprovalCheckerTimerSecs--;
+            StateHasChanged();
+        }
+        else
+        {
+            StopTimer();
+        }
+    }
+
+    private void StopTimer()
+    {
+        AdSenceApprovalCheckerTimerSecs = 0;
+        AdSenceApprovalCheckerTimer.Stop();
+        AdSenceApprovalCheckerTimer.Dispose();
+        ButtonEnableDisable = true;
+        StateHasChanged();
+    }
+}
 
 @if (WebsiteAuditData != null && !string.IsNullOrEmpty(WebsiteAuditData.DomainName))
 {
@@ -129,70 +246,5 @@
         </div>
 
     </section>
-
-    <!-- /Features Section -->
 }
 
-@code {
-
-    private SearchModel searchModel = new SearchModel();
-    private WebsiteData WebsiteAuditData;
-    private bool isLoading = false;
-    private bool isSuccess = false;
-    private string errorMessage = string.Empty;
-    public string MetricsFontSize { get; set; } = "";
-
-    public class SearchModel
-    {
-        [Required(ErrorMessage = "URL is required.")]
-        [Url(ErrorMessage = "Invalid URL format.")]
-        [DomainOrSubdomain(ErrorMessage = "URL does not contain a valid domain or subdomain.")]
-
-        public string Url { get; set; }
-    }
-
-    protected override async Task OnInitializedAsync()
-    {
-        MetricsFontSize = "font-size: 100px !important;";
-    }
-
-    private async Task HandleSubmit()
-    {
-        isLoading = true;
-        errorMessage = string.Empty;
-        WebsiteAuditData = new WebsiteData();
-        try
-        {
-            // Validate the URL (basic validation)
-            if (!Uri.IsWellFormedUriString(searchModel.Url, UriKind.Absolute))
-            {
-                errorMessage = "Invalid URL format.";
-                return;
-            }
-
-            //var domainOrSubdomain = UrlExtensions.ExtractDomainOrSubdomain(searchModel.Url);
-
-            // Simulate an HTTP POST request
-            var response = await ApiService.FetchAndSaveLighthouseReportAsync(searchModel.Url);
-            if (response.IsSuccessStatusCode)
-            {
-                WebsiteAuditData = await response.Content.ReadFromJsonAsync<WebsiteData>();
-                await JSRuntime.InvokeVoidAsync("scrollDown");
-            }
-            else
-            {
-                // Handle error
-                WebsiteAuditData = new WebsiteData();
-            }
-        }
-        catch (Exception ex)
-        {
-            errorMessage = $"An error occurred: {ex.Message}";
-        }
-        finally
-        {
-            isLoading = false;
-        }
-    }
-
-}
