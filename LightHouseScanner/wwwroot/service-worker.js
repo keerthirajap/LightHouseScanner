@@ -1,9 +1,4 @@
-self.addEventListener('fetch', event => {
-    event.respondWith(
-        fetch(event.request, { redirect: 'follow' }).catch(error => {
-            console.error('Fetch failed; returning offline page instead.', error);
-
-            return caches.match('offline.html');
-        })
-    );
-});
+// In development, always fetch from the network and do not enable offline support.
+// This is because caching would make development more difficult (changes would not
+// be reflected on the first load after each change).
+self.addEventListener('fetch', () => { });

@@ -27,10 +27,10 @@ namespace LightHouseScanner
                 client.BaseAddress = new Uri(builder.HostEnvironment.BaseAddress);
                 client.EnableIntercept(sp);
             });
-
             builder.Services.AddHttpClient("ApiHttpClient", (sp, client) =>
             {
                 client.BaseAddress = new Uri("https://website-lighthouse-seo-scanner-online.niraiyaemailaccounts.workers.dev/");
+                client.Timeout = TimeSpan.FromSeconds(60);
                 client.EnableIntercept(sp);
             });
 
