@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "LightHouseScanner",
   "resources": {
-    "hash": "sha256-7SdbdaP9xkTqFODd8gm4+4x4nh6DFx2HSFm8defgEy0=",
+    "hash": "sha256-pYd6LzCauhmPAXz+qY08dtRVE1J1JYRiDsr+i9IlBoU=",
     "jsModuleNative": {
       "dotnet.native.8.0.7.pvkr2na9g4.js": "sha256-tFsxPBbhkdn6GKNBKvCRLzrfAHdyM86odYTe0MtrwMk="
     },
@@ -18,7 +18,7 @@
     },
     "assembly": {
       "Blazor-Analytics.wasm": "sha256-VIHzI5xU82EmdqXC80Au4/cWOQw5sKeSuA0gQr4Zz7Y=",
-      "LightHouseScanner.wasm": "sha256-Dp95xg19cMC47mxl9dSwz6Woq7tfEmQjdoLyMYBOMlA=",
+      "LightHouseScanner.wasm": "sha256-SKPcnYsQ99TJUU4fopaXTWhkhdXyoROBpoMPJ2roae0=",
       "Microsoft.AspNetCore.Components.Forms.wasm": "sha256-xqauWohrkDJFCGzVQPDdf2XSJD89zflheRYyFmy4ssE=",
       "Microsoft.AspNetCore.Components.wasm": "sha256-Cke5mEYpR372KWH7bD+FWN1NF+F9u1nbLs08dkFMMCU=",
       "Microsoft.AspNetCore.Components.Web.wasm": "sha256-ZS2MQdg2otOPc23s2IpqxldMH3ZZsHm/PZLPhZcFU8M=",
@@ -59,7 +59,7 @@
       "System.Private.Uri.wasm": "sha256-NOyIRLSQj4B1ZV1yMonceoizgtGbfb2io6W/EJNteJc=",
       "System.Runtime.InteropServices.JavaScript.wasm": "sha256-8m7q6IfvTajy/UhTPL/oSXLq+HE7txOHKCFLDDkFoyA=",
       "System.Runtime.Serialization.Primitives.wasm": "sha256-6f1h+XcNFehH/PT/HDntV0/4dne387HI0YxmMsTfQ5k=",
-      "System.Runtime.wasm": "sha256-qZo5ta4lAcDU9UDJ0bAiKUK/bTfYX7lRgn4EIb2j29s=",
+      "System.Runtime.wasm": "sha256-dFg/NqIwyp+pwr8GFe4rshKWCuHI1HgJaT2a35TSAz4=",
       "System.Text.Encodings.Web.wasm": "sha256-4ASLPI+R+3lvUZI8lVAOpIPzNEwiqbxX910GoFqMC+A=",
       "System.Text.Json.wasm": "sha256-AguPQTdbqp/3VhjnsIhquP1IWuVe6LorzXGa2/8sZro=",
       "System.Text.RegularExpressions.wasm": "sha256-JpPiI6NW6ktpV8T05oKuHmIUbCYggZpSKHVBgcuCF/c=",
