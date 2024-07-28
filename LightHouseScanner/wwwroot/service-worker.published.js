@@ -6,24 +6,31 @@ self.addEventListener('install', event => event.waitUntil(onInstall(event)));
 self.addEventListener('activate', event => event.waitUntil(onActivate(event)));
 
 self.addEventListener('fetch', event => {
-    console.log('Fetch event for:', event.request.url);
+    const url = new URL(event.request.url);
 
-    event.respondWith(
-        fetch(event.request, { redirect: 'follow' })
-            .then(response => {
-                console.log('Fetch response status:', response.status, 'for URL:', event.request.url);
-                if (!response.ok) {
-                    console.error('Fetch error:', response.statusText);
-                    return new Response('Network error', { status: response.status });
-                }
-                return response;
-            })
-            .catch(error => {
-                console.error('Fetch error for URL:', event.request.url, 'Error:', error);
-                return new Response('Network error', { status: 500 });
-            })
-    );
+    // Example condition to handle a specific URL
+    if (url.origin === 'https://sitescan.plus') {
+        event.respondWith(
+            fetch(event.request, { redirect: 'follow' })
+                .then(response => {
+                    console.log('Fetch response status:', response.status, 'for URL:', event.request.url);
+                    if (!response.ok) {
+                        console.error('Fetch error:', response.statusText);
+                        return new Response('Network error', { status: response.status });
+                    }
+                    return response;
+                })
+                .catch(error => {
+                    console.error('Fetch error for URL:', event.request.url, 'Error:', error);
+                    return new Response('Network error', { status: 500 });
+                })
+        );
+    } else {
+        // Default fetch behavior for other requests
+        event.respondWith(fetch(event.request));
+    }
 });
+
 
 const cacheNamePrefix = 'offline-cache-';
 const cacheName = `${cacheNamePrefix}${self.assetsManifest.version}`;
