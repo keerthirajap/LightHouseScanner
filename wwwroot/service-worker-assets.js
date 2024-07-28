@@ -713,7 +713,7 @@
       "url": "assets\/vendor\/swiper\/swiper-bundle.min.js.map"
     },
     {
-      "hash": "sha256-6fXhHAg5bwNGwxUbM8zim4msdvbMtQEg3vrtxp55m2U=",
+      "hash": "sha256-u9i971QUNhSVLJ2ERwEiAPK339f91KYSvpymd1i6cIE=",
       "url": "css\/app.css"
     },
     {
@@ -2061,7 +2061,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-eH6YaIoZk58Rk+KgEw8saB0Udwe7ChN0EMkzG9tlwKk=",
+      "hash": "sha256-3yVvPVIpcchdRowsJiAkRmRdvtZS8YVLtGukZx3K2yY=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -2069,7 +2069,7 @@
       "url": "_framework\/Blazor-Analytics.wasm"
     },
     {
-      "hash": "sha256-8sY2y02JjXg6XbzV2sxAOMW9YFi2KUUDCwp1Ssucxhc=",
+      "hash": "sha256-bG7FnCV5Zs1IlFDg82piRE3Xd9jTusMtKC8sfXmIob8=",
       "url": "_framework\/LightHouseScanner.wasm"
     },
     {
@@ -2285,5 +2285,5 @@
       "url": "_content\/Toolbelt.Blazor.LoadingBar\/style.min.css"
     }
   ],
-  "version": "EDqJ8WAH"
+  "version": "KICGBh3S"
 };
