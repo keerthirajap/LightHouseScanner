@@ -2061,7 +2061,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-UcPo07Dq5qYdVhhpuZjbjwkDNAXu9cqgDjh8RjLSObQ=",
+      "hash": "sha256-yFDHlYgo46yhz1i\/2Ext1liqDoWA696c8GBfr2APaT0=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -2069,7 +2069,7 @@
       "url": "_framework\/Blazor-Analytics.wasm"
     },
     {
-      "hash": "sha256-y8rmSLn+tn+o\/E2yqbIoqy1NvBp9U4eZ2anVZxOxxzI=",
+      "hash": "sha256-ZR+anC9pW2iuiYV403qvUwgY7pp4z7L6nRWLiIXHPwo=",
       "url": "_framework\/LightHouseScanner.wasm"
     },
     {
@@ -2285,5 +2285,5 @@
       "url": "_content\/Toolbelt.Blazor.LoadingBar\/style.min.css"
     }
   ],
-  "version": "RQVl0rx+"
+  "version": "ctQRTkY2"
 };
