@@ -1,4 +1,5 @@
-﻿@inject ApiService ApiService
+﻿@inject IJSRuntime JSRuntime
+@inject ApiService ApiService
 
 <section id="hero" class="hero section dark-background">
 
@@ -40,16 +41,6 @@
                     }
                 </EditForm>
             </div>
-
-            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
-                @*  <form action="forms/newsletter.php" method="post" class="php-email-form">
-                <div class="sign-up-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
-
-                </form> *@
-
-
-
-            </div>
         </div>
     </div>
 
@@ -57,24 +48,25 @@
 
 @if (WebsiteAuditData != null && !string.IsNullOrEmpty(WebsiteAuditData.DomainName))
 {
-    <section id="features" class="features section">
+    <section id="scanresults" class="features section">
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
+        <div class="container section-title pb-3" data-aos="fade-up">
             <h3 class="fw-bold">Google LightHouse Scan Result</h3>
-        </div><!-- End Section Title -->
+        </div>
 
         <div class="container">
             <div class="card shadow-sm p-4">
                 <div class="row gy-4 align-items-stretch justify-content-between features-item ">
                     <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
-                        <img src="@WebsiteAuditData.FinalScreenshot" style="border:none !important" class="img-fluid rounded shadow p-0 m-0 bg-body-tertiary rounded" alt="">
+                        <img src="@WebsiteAuditData.FinalScreenshot" style="border:none !important" class="img-fluid rounded shadow p-0 m-0" alt="">
                     </div>
 
                     <div class="col-lg-6">
 
                         <div class="row ps-2">
+
                             <div class="col-12 mb-3">
+
                                 <h5 class="card-title text-center mt-2">
                                     <a href="@WebsiteAuditData.DomainName" target="_blank" class="anchor-hover fs-3">
                                         @WebsiteAuditData.DomainName
@@ -89,9 +81,9 @@
                                         <div class="slice"><div class="bar"></div><div class="fill"></div></div>
                                     </div>
                                 </div>
-                                <p class="text-success pt-1 fs-5">Performance</p>
+                                <p class="text-success pt-2 fs-6">Performance</p>
                             </div>
-                            
+
                             <div class="col-md-3 text-center">
                                 <div class="inner-content text-center m-1 m-md-0">
                                     <div class="c100 center @string.Format("p" + @WebsiteAuditData.Accessibility) @CommonExtensions.GetCSSPercentageClass(@WebsiteAuditData.Accessibility.ToString())" style="@MetricsFontSize">
@@ -99,7 +91,7 @@
                                         <div class="slice"><div class="bar"></div><div class="fill"></div></div>
                                     </div>
                                 </div>
-                                <p class="text-success pt-1 fs-5">Accessibility</p>
+                                <p class="text-success pt-2 fs-6">Accessibility</p>
                             </div>
 
                             <div class="col-md-3 text-center">
@@ -109,7 +101,7 @@
                                         <div class="slice"><div class="bar"></div><div class="fill"></div></div>
                                     </div>
                                 </div>
-                                <p class="text-success pt-1 fs-5">Best Practices</p>
+                                <p class="text-success pt-2 fs-6">Best Practices</p>
                             </div>
 
                             <div class="col-md-3 text-center">
@@ -119,14 +111,15 @@
                                         <div class="slice"><div class="bar"></div><div class="fill"></div></div>
                                     </div>
                                 </div>
-                                <p class="text-success pt-1 fs-5">SEO</p>
+                                <p class="text-success pt-2 fs-6">SEO</p>
                             </div>
 
                             <div class="col-12 mt-2">
+                                <hr class="horizontal dark mt-0">
                                 <WebsiteDetailMetricsBig Website="WebsiteAuditData" />
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
 
@@ -184,6 +177,7 @@
             if (response.IsSuccessStatusCode)
             {
                 WebsiteAuditData = await response.Content.ReadFromJsonAsync<WebsiteData>();
+                await JSRuntime.InvokeVoidAsync("scrollDown");
             }
             else
             {

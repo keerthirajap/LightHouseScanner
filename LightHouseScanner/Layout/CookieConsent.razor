@@ -1,0 +1,45 @@
+﻿@using Microsoft.JSInterop
+@inject IJSRuntime JSRuntime
+
+@if (!isConsentGiven)
+{
+    <div class="modal fade show d-block" id="cookieConsentModal" tabindex="-1" role="dialog" aria-labelledby="cookieConsentModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-bottom" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-start">
+                        <p class="mb-0">We use cookies to improve your experience on our site. By using our site, you consent to cookies.</p>
+                    </div>
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-success mt-3" @onclick="AcceptCookies">
+                            <i class="fa-solid fa-check me-2"></i>
+                            Accept
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade show"></div>
+}
+
+@code {
+    private bool isConsentGiven;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var consentValue = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "cookieConsent");
+        isConsentGiven = consentValue == "true";
+    }
+
+    private async Task AcceptCookies()
+    {
+        await JSRuntime.InvokeVoidAsync("localStorage.setItem", "cookieConsent", "true");
+        isConsentGiven = true;
+    }
+
+    private void ClosePopup()
+    {
+        isConsentGiven = true;
+    }
+}

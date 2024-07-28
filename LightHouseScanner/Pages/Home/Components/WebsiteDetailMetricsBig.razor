@@ -10,24 +10,24 @@
     <div class="row ps-4">
         <div class="col-6">
             <p class="mb-0">
-                <span class="fw-light fs-6">
+                <span class="fw-light fs-7">
                     Page Load Time
                 </span>
             </p>
             <p class="mb-0">
-                <span class="fw-medium fs-5">
+                <span class="fw-medium fs-6">
                     @Website.PageLoadTime ms
                 </span>
             </p>
         </div>
         <div class="col-6">
             <p class="mb-0">
-                <span class="fw-light fs-6">
+                <span class="fw-light fs-7">
                     Server Response Time
                 </span>
             </p>
             <p class="mb-0">
-                <span class="fw-medium fs-5">
+                <span class="fw-medium fs-6">
                     @Website.ServerResponseTime ms
                 </span>
             </p>
@@ -35,12 +35,12 @@
 
         <div class="col-6 mt-3">
             <p class="mb-0">
-                <span class="fw-light fs-6">
+                <span class="fw-light fs-7">
                     First Scan Date
                 </span>
             </p>
             <p class="mb-0">
-                <span class="fw-medium fs-5">
+                <span class="fw-medium fs-6">
                     @Website.CreatedOn.ToString("MMM dd yyyy HH:mm:ss UTC")
                 </span>
             </p>
@@ -48,24 +48,24 @@
 
         <div class="col-6 mt-3">
             <p class="mb-0">
-                <span class="fw-light fs-6">
+                <span class="fw-light fs-7">
                     Last Scan Date
                 </span>
             </p>
             <p class="mb-0">
-                <span class="fw-medium fs-5">
+                <span class="fw-medium fs-6">
                     @Website.LastScan.ToString("MMM dd yyyy HH:mm:ss UTC")
                 </span>
             </p>
         </div>
         <div class="col-12 mt-3">
             <p class="mb-0">
-                <span class="fw-light fs-6">
+                <span class="fw-light fs-7">
                     First Scan IP Address
                 </span>
             </p>
             <p class="mb-0">
-                <span class="fw-medium fs-5">
+                <span class="fw-medium fs-6">
                     <img src='@string.Concat("/images/Flags-Icon-Set/" + createdIpDetails.countryCode + ".png")'
                          class="rounded me-1 mb-1" style="height: 32px;" />
                     @createdIpDetails.query
@@ -76,14 +76,14 @@
 
         <div class="col-12 mt-3">
             <p class="mb-0">
-                <span class="fw-light fs-6">
+                <span class="fw-light fs-7">
                     Last Scan IP Address
                 </span>
             </p>
             <p class="mb-0">
                 @if (!string.IsNullOrEmpty(Website.LastScanIPAddress))
                 {
-                    <span class="fw-medium fs-5">
+                    <span class="fw-medium fs-6">
                         <img src='@string.Concat("/images/Flags-Icon-Set/" + lastScanIpDetails.countryCode + ".png")'
                              class="rounded me-1 mb-1" style="height: 32px;" />
                         @lastScanIpDetails.query
