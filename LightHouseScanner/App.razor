@@ -1,5 +1,7 @@
-﻿<Router AppAssembly="@typeof(App).Assembly">
-         
+﻿@inject IJSRuntime JSRuntime
+
+<Router AppAssembly="@typeof(App).Assembly">
+
     <Found Context="routeData">
         <NavigationTracker />
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
@@ -13,3 +15,20 @@
         </LayoutView>
     </NotFound>
 </Router>
+
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        string userSessionId = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "UserSessionId");
+
+        if (string.IsNullOrEmpty(userSessionId))
+        {
+            userSessionId = Guid.NewGuid().ToString();
+            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "UserSessionId", userSessionId);
+        }
+
+        Console.WriteLine($"UserSessionId: {userSessionId}");
+    }
+}

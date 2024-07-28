@@ -18,7 +18,7 @@ namespace LightHouseScanner
             builder.Services.AddLoadingBar(options =>
             {
                 options.LoadingBarColor = "blue";
-                //options.LatencyThreshold = 350;
+                options.LatencyThreshold = 50;
                 options.ContainerSelector = "#selector-of-container";
             });
 

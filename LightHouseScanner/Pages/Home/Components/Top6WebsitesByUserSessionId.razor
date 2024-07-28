@@ -1,10 +1,11 @@
 ﻿@inject ApiService ApiService
+@inject IJSRuntime JSRuntime
 
 
 <section id="blog-posts" class="blog-posts section pb-0">
     <div class="container section-title" data-aos="fade-up">
-        <h2>5 Best Page Speed Scores</h2>
-        <p>View the websites with the highest overall performance scores. Analyze their success factors and implement similar strategies.</p>
+        <h2>User's Scan History</h2>
+       @*  <p>View the websites with the highest overall performance scores. Analyze their success factors and implement similar strategies.</p> *@
     </div>
 
     <div class="container my-0">
@@ -100,22 +101,31 @@
             }
         </div>
     </div>
+
 </section>
 
 @code {
+    [Parameter]
+    public List<WebsiteData> websiteDataList { get; set; } = new List<WebsiteData>();
+}
 
-    private List<WebsiteData> websiteDataList;
+
+@code {
+
+    private List<WebsiteData> websiteDataList1;
     public string MetricsFontSize { get; set; } = "";
 
     protected override async Task OnInitializedAsync()
     {
-        await FetchTop10BestWebsites();
+        await Fetch6WebsitesByUserSessionId();
         MetricsFontSize = "font-size: 100px !important;";
     }
 
-    private async Task FetchTop10BestWebsites()
+    private async Task Fetch6WebsitesByUserSessionId()
     {
-        var response = await ApiService.FetchTop10BestWebsitesAsync();
+        string userSessionId = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "UserSessionId");
+
+        var response = await ApiService.Fetch6WebsitesByUserSessionId(userSessionId);
         if (response.IsSuccessStatusCode)
         {
             websiteDataList = await response.Content.ReadFromJsonAsync<List<WebsiteData>>();

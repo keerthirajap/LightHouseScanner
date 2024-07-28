@@ -23,15 +23,15 @@ namespace LightHouseScanner.Services
             return await _apiHttpClient.PostAsync("", content);
         }
 
-        public async Task<HttpResponseMessage> FetchAndSaveLighthouseReportAsync(string url)
+        public async Task<HttpResponseMessage> FetchAndSaveLighthouseReportAsync(string url, string userSessionId)
         {
-            var payload = new { url, CallType = "GetOrScanWebsite" };
+            var payload = new { url, CallType = "GetOrScanWebsite", UserSessionId = userSessionId };
             return await PostAsync(payload);
         }
 
-        public async Task<HttpResponseMessage> FetchTop10ReScannedWebsitesAsync()
+        public async Task<HttpResponseMessage> Fetch6WebsitesByUserSessionId(string userSessionId)
         {
-            var payload = new { CallType = "GetLast10ReScannedWebsites" };
+            var payload = new { CallType = "GetLast10ScannedWebsitesUserSessionId", UserSessionId = userSessionId };
             return await PostAsync(payload);
         }
 

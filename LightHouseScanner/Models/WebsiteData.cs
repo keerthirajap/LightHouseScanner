@@ -15,5 +15,8 @@
         public string CreatedIPAddress { get; set; } = string.Empty;
         public DateTime LastScan { get; set; }
         public string LastScanIPAddress { get; set; } = string.Empty;
+
+        public bool Success { get; set; }
+        public string Message { get; set; } = string.Empty;
     }
 }

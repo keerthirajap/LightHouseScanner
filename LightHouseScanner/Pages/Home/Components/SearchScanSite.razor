@@ -63,7 +63,10 @@
 @code {
 
     private SearchModel searchModel = new SearchModel();
+
     private WebsiteData WebsiteAuditData;
+    private List<WebsiteData> WebsitesByUserSession;
+
     private bool isLoading = false;
     private bool isSuccess = false;
     private string errorMessage = string.Empty;
@@ -84,6 +87,24 @@
     protected override async Task OnInitializedAsync()
     {
         MetricsFontSize = "font-size: 100px !important;";
+        await Fetch6WebsitesByUserSessionId();
+    }
+
+    private async Task Fetch6WebsitesByUserSessionId()
+    {
+        string userSessionId = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "UserSessionId");
+
+        var response = await ApiService.Fetch6WebsitesByUserSessionId(userSessionId);
+        if (response.IsSuccessStatusCode)
+        {
+            WebsitesByUserSession = await response.Content.ReadFromJsonAsync<List<WebsiteData>>();
+        }
+        else
+        {
+            // Handle error
+            WebsitesByUserSession = new List<WebsiteData>();
+        }
+        StateHasChanged();
     }
 
     private void SetupTimer()
@@ -99,7 +120,7 @@
         errorMessage = string.Empty;
         WebsiteAuditData = new WebsiteData();
         ButtonEnableDisable = false;
-        AdSenceApprovalCheckerTimerSecs = 50;
+        AdSenceApprovalCheckerTimerSecs = 60;
         AdSenceApprovalCheckerTimer.Enabled = true;
         AdSenceApprovalCheckerTimer.Start();
         StateHasChanged();
@@ -113,16 +134,34 @@
                 return;
             }
 
+            string userSessionId = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "UserSessionId");
+
             // Simulate an HTTP POST request
-            var response = await ApiService.FetchAndSaveLighthouseReportAsync(searchModel.Url);
+            var response = await ApiService.FetchAndSaveLighthouseReportAsync(searchModel.Url, userSessionId);
+
             if (response.IsSuccessStatusCode)
             {
-                WebsiteAuditData = await response.Content.ReadFromJsonAsync<WebsiteData>();
-                await JSRuntime.InvokeVoidAsync("scrollDown");
-                isSuccess = true;
 
-                // Trigger SweetAlert2 Toast Notification
-                await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
+
+                WebsiteAuditData = await response.Content.ReadFromJsonAsync<WebsiteData>();
+
+
+                if (string.IsNullOrEmpty(WebsiteAuditData.Message))
+                {
+                    await JSRuntime.InvokeVoidAsync("scrollDown");
+                    isSuccess = true;
+
+                    // Trigger SweetAlert2 Toast Notification
+                    await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
+
+                    await Fetch6WebsitesByUserSessionId();
+                }
+                else
+                {
+                    // Trigger SweetAlert2 Toast Notification
+                    await JSRuntime.InvokeVoidAsync("showToast", "error", WebsiteAuditData.Message);
+
+                }
             }
             else
             {
@@ -140,6 +179,8 @@
             StopTimer();
             isLoading = false;
         }
+
+        StateHasChanged();
     }
 
     private void AdSenceApprovalCheckerTimerAsync(object sender, ElapsedEventArgs e)
@@ -250,3 +291,4 @@
     </section>
 }
 
+<Top6WebsitesByUserSessionId websiteDataList="WebsitesByUserSession" />
