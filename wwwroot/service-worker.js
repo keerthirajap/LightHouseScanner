@@ -2,26 +2,7 @@
 // offline support. See https://aka.ms/blazor-offline-considerations
 
 self.importScripts('./service-worker-assets.js');
-
-self.addEventListener('install', async event => {
-    console.info('Service worker: Install');
-
-    // Fetch and cache all matching items from the assets manifest
-    const assetsRequests = self.assetsManifest.assets
-        .filter(asset => offlineAssetsInclude.some(pattern => pattern.test(asset.url)))
-        .filter(asset => !offlineAssetsExclude.some(pattern => pattern.test(asset.url)))
-        .map(asset => new Request(asset.url, { integrity: asset.hash }));
-
-    // Open cache and cache the offline page
-    const cache = await caches.open(cacheName);
-    await cache.addAll(assetsRequests); // Cache the requested assets
-    const offlineResponse = await fetch('/offline');
-    await cache.put('/offline', new Response(offlineResponse.body));
-
-    // Optional notification for new version
-    notifyNewVersion();
-});
-
+self.addEventListener('install', event => event.waitUntil(onInstall(event)));
 self.addEventListener('activate', event => event.waitUntil(onActivate(event)));
 self.addEventListener('fetch', event => event.respondWith(onFetch(event)));
 
@@ -72,4 +53,4 @@ async function onFetch(event) {
 
     return cachedResponse || fetch(event.request);
 }
-/* Manifest version: 6goHmK+2 */
+/* Manifest version: r7qO3Jny */
