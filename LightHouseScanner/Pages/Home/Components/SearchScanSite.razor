@@ -17,7 +17,7 @@
                 </h2>
             </div>
 
-            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-9" data-aos="fade-up" data-aos-delay="300">
                 <EditForm Model="@searchModel" OnValidSubmit="HandleSubmit" class="php-email-form">
                     <div class="sign-up-form">
                         <InputText @bind-Value="searchModel.Url" placeholder="Enter Your URL or Company Website to scan..."
@@ -25,7 +25,11 @@
 
                         @if (ButtonEnableDisable)
                         {
-                            <button type="submit" class="btn btn-warning ms-2 ps-4 pe-4 btn-lg text-nowrap">
+                            <div class="btn btn-outline-secondary ms-2" id="pasteContent" @onclick="@(async () => await PasteFromClipboard())">
+                                <i class="fa-solid fa-paste fs-6 pt-2"></i>
+                            </div>
+
+                            <button type="submit" class="btn btn-warning ms-2 ps-5 pe-5 btn-lg text-nowrap">
                                 <i class="fa-solid fa-magnifying-glass me-2"></i>
                                 Scan
                             </button>
@@ -165,6 +169,7 @@
             }
             else
             {
+                await JSRuntime.InvokeVoidAsync("showToast", "error", "An error occurred while fetching the report.");
                 // Handle error
                 errorMessage = "An error occurred while fetching the report.";
                 WebsiteAuditData = new WebsiteData();
@@ -203,6 +208,13 @@
         AdSenceApprovalCheckerTimer.Dispose();
         ButtonEnableDisable = true;
         StateHasChanged();
+    }
+
+    private async Task PasteFromClipboard()
+    {
+        searchModel = new SearchModel();
+
+        searchModel.Url = await JSRuntime.InvokeAsync<string>("navigator.clipboard.readText");
     }
 }
 
