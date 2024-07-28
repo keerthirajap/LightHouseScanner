@@ -329,7 +329,7 @@
       "url": "assets\/img\/world-dotted-map.png"
     },
     {
-      "hash": "sha256-Tahso+VBRzoP7gfSRPqbwB\/R3gWVQXRijWfOI18h+Sk=",
+      "hash": "sha256-zrBcK0nJkmkQvX1g6HPq23hcQLuLLZCykS6qPBPSkcg=",
       "url": "assets\/js\/main.js"
     },
     {
@@ -2061,7 +2061,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-YvNeICKONDd\/OQNUqt383P3XgJNEI11dNgpKhqGTs5I=",
+      "hash": "sha256-18\/Ep8qrUhaNxoMfmKiv8dhrLvylxc2sIDy3zcAWKZM=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -2069,7 +2069,7 @@
       "url": "_framework\/Blazor-Analytics.wasm"
     },
     {
-      "hash": "sha256-qGQVr+LD5K77ubfg8jQ11ZM1ot88Qsu4jznFP81mR60=",
+      "hash": "sha256-F5JKTjLpvfQz5vGYeMURdvewWreZ2\/vHFk4xvNI1fdE=",
       "url": "_framework\/LightHouseScanner.wasm"
     },
     {
@@ -2285,5 +2285,5 @@
       "url": "_content\/Toolbelt.Blazor.LoadingBar\/style.min.css"
     }
   ],
-  "version": "r7qO3Jny"
+  "version": "VFQJHloC"
 };
