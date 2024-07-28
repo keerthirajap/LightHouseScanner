@@ -69,7 +69,7 @@
 
                     @if (!string.IsNullOrEmpty(Website.LastScanIPAddress))
                     {
-                        <span class="fw-medium fs-7">
+                        <span class="fw-normal fs-7">
                             <img src='@string.Concat("/images/Flags-Icon-Set/" + createdIpDetails.countryCode + ".png")'
                                  class="rounded me-1 mb-1" style="height: 20px;" />
                             @createdIpDetails.query
@@ -89,7 +89,7 @@
             <p class="mb-0">
                 @if (!string.IsNullOrEmpty(Website.LastScanIPAddress))
                 {
-                    <span class="fw-medium fs-7">
+                    <span class="fw-normal fs-7">
                         <img src='@string.Concat("/images/Flags-Icon-Set/" + lastScanIpDetails.countryCode + ".png")'
                              class="rounded me-1 mb-1" style="height: 20px;" />
                         @lastScanIpDetails.query
