@@ -14,7 +14,7 @@ self.addEventListener('fetch', event => {
                 console.log('Fetch response status:', response.status, 'for URL:', event.request.url);
                 if (!response.ok) {
                     console.error('Fetch error:', response.statusText);
-                    return new Response('Network error', { status: 500 });
+                    return new Response('Network error', { status: response.status });
                 }
                 return response;
             })
@@ -72,4 +72,4 @@ async function onFetch(event) {
 
     return cachedResponse || fetch(event.request);
 }
-/* Manifest version: MiR9hAGz */
+/* Manifest version: fTZkCSPH */
