@@ -1,5 +1,6 @@
 namespace LightHouseScanner
 {
+    using Blazor.Analytics;
     using LightHouseScanner.Services;
     using Microsoft.AspNetCore.Components.Web;
     using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -36,7 +37,7 @@ namespace LightHouseScanner
             builder.Services.AddScoped<ApiService>();
 
             builder.UseLoadingBar();
-
+            builder.Services.AddGoogleAnalytics("G-NWPMMWZY48");
             await builder.Build().RunAsync();
         }
     }
