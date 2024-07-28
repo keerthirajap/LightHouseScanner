@@ -11,8 +11,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="display-1 fw-normal mb-5" data-aos="fade-up" data-aos-delay="100">SiteScan+ Instant Website SEO Insights</h1>
-                <h2 class="display-6 fw-light mb-4" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="display-2 fw-normal mb-5" data-aos="fade-up" data-aos-delay="100">SiteScan+ Instant Website SEO Insights</h1>
+                <h2 class="fs-2 fw-light mb-4" data-aos="fade-up" data-aos-delay="200">
                     Site Scan Plus, delivers quick and accurate insights of your Home Page performance using Google Lighthouse.
                 </h2>
             </div>
@@ -25,15 +25,14 @@
 
                         @if (ButtonEnableDisable)
                         {
-
-                            <button type="submit" class="btn btn-primary ms-2 ps-4 pe-4 btn-lg text-nowrap">
+                            <button type="submit" class="btn btn-warning ms-2 ps-4 pe-4 btn-lg text-nowrap">
                                 <i class="fa-solid fa-magnifying-glass me-2"></i>
                                 Scan
                             </button>
                         }
                         else
                         {
-                            <button disabled type="submit" class="btn btn-primary ms-2 ps-4 pe-4 btn-lg text-nowrap">
+                            <button disabled type="submit" class="btn btn-info ms-2 ps-4 pe-4 btn-lg text-nowrap text-dark">
                                 <span>
                                     <i class="fa-solid fa-spinner fa-spin-pulse me-2"></i>
                                     Scanning (@AdSenceApprovalCheckerTimerSecs)
@@ -85,7 +84,6 @@
     protected override async Task OnInitializedAsync()
     {
         MetricsFontSize = "font-size: 100px !important;";
-        SetupTimer();
     }
 
     private void SetupTimer()
@@ -96,6 +94,7 @@
 
     private async Task HandleSubmit()
     {
+        SetupTimer();
         isLoading = true;
         errorMessage = string.Empty;
         WebsiteAuditData = new WebsiteData();
@@ -121,6 +120,9 @@
                 WebsiteAuditData = await response.Content.ReadFromJsonAsync<WebsiteData>();
                 await JSRuntime.InvokeVoidAsync("scrollDown");
                 isSuccess = true;
+
+                // Trigger SweetAlert2 Toast Notification
+                await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
             }
             else
             {
