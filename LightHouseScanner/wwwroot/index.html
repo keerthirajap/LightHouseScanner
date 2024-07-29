@@ -344,9 +344,11 @@
     </div>
 
     <div id="blazor-error-ui">
-        An unhandled error has occurred.
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
+        <span class="text-dark" id="blazor-error-ui-Text">
+            An unhandled error has occurred. Clear browser cookies and cache, Then —
+        </span>
+        <a href="/" title="Reload" class="reload anchor-hover" id="blazor-error-ui-ReloadLink">Reload</a>
+        <a class="dismiss" href="/" title="Home Page Cross">🗙</a>
     </div>
 
     <script src="_framework/blazor.webassembly.js"></script>
