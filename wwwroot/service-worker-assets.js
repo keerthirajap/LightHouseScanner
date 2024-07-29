@@ -341,7 +341,7 @@
       "url": "assets\/img\/world-dotted-map.png"
     },
     {
-      "hash": "sha256-zrBcK0nJkmkQvX1g6HPq23hcQLuLLZCykS6qPBPSkcg=",
+      "hash": "sha256-WjSY1hnzhwjNCCxXjV0ky+OPc35HD4Gd4psFWfZYLcA=",
       "url": "assets\/js\/main.js"
     },
     {
@@ -725,7 +725,7 @@
       "url": "browserconfig.xml"
     },
     {
-      "hash": "sha256-V0TYIQmisx+CPZXAZqUFlyQzFFFCGa7Hf\/GpdL5tjG0=",
+      "hash": "sha256-\/+MTE2kXlEbng\/34NOcFYK9cxcybtZB3RXJ+wJ3duGk=",
       "url": "css\/app.css"
     },
     {
@@ -2013,7 +2013,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-7leDZ\/tuBXow8z3jD7nFoAlAFEWj2kN4VD\/\/QaCkD2E=",
+      "hash": "sha256-ikwSWq42SzYfKkEwOPrluUllhEj9yYayOBaRjgI59EQ=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -2021,7 +2021,7 @@
       "url": "_framework\/Blazor-Analytics.wasm"
     },
     {
-      "hash": "sha256-Yf1DoaP8ljoF8MFi7l31QZtaBmwk4VwDO1j\/zvYGAZ4=",
+      "hash": "sha256-zn9idxDNjyi3TU+TZKDBcP7JQwa4qrzWuYE138g9IDw=",
       "url": "_framework\/LightHouseScanner.wasm"
     },
     {
@@ -2225,7 +2225,7 @@
       "url": "appsettings.Production.json"
     },
     {
-      "hash": "sha256-MWYUmXVBkgmJC7BY4zUU\/tiFSs52g74ScmC\/0ud037o=",
+      "hash": "sha256-RRA8gRYjxyE+6Y\/2QbX1rVwgwH7IKvopslJ2KM9OiaY=",
       "url": "LightHouseScanner.styles.css"
     },
     {
@@ -2245,5 +2245,5 @@
       "url": "_content\/Toolbelt.Blazor.LoadingBar\/style.min.css"
     }
   ],
-  "version": "KKxGSUS+"
+  "version": "MQg+gLV0"
 };

@@ -4,18 +4,46 @@
     /**
      * Apply .scrolled class to the body as the page is scrolled down
      */
-    function toggleScrolled() {
+    //function toggleScrolled() {
 
+    //    try {
+    //        const selectBody = document.querySelector('body');
+    //        const selectHeader = document.querySelector('#header');
+    //        if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
+    //        window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+
+    //    } catch (e) {
+
+    //    }
+    //}
+
+    function toggleScrolled() {
         try {
             const selectBody = document.querySelector('body');
             const selectHeader = document.querySelector('#header');
+            const siteName = document.querySelector('.sitename');
+
+            siteName.classList.remove('color-white'); // Remove the class on page load
+
             if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-            window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+
+            if (window.scrollY > 100) {
+                selectBody.classList.add('scrolled');
+                selectHeader.style.backgroundColor = 'white';
+                selectHeader.style.color = 'black';
+                siteName.style.color = 'black';
+            } else {
+                selectBody.classList.remove('scrolled');
+                selectHeader.style.backgroundColor = 'transparent';
+                selectHeader.style.color = 'white';
+                siteName.style.color = 'white';
+            }
 
         } catch (e) {
-
+            console.error(e);
         }
     }
+
 
     document.addEventListener('scroll', toggleScrolled);
     window.addEventListener('load', toggleScrolled);
@@ -179,6 +207,7 @@
      * Correct scrolling position upon page load for URLs containing hash links.
      */
     window.addEventListener('load', function (e) {
+
         if (window.location.hash) {
             if (document.querySelector(window.location.hash)) {
                 setTimeout(() => {
