@@ -144,22 +144,24 @@
 
         try
         {
-            // Validate the URL (basic validation)
-            if (!Uri.IsWellFormedUriString(searchModel.Url, UriKind.Absolute))
-            {
-                errorMessage = "Invalid URL format.";
-                return;
-            }
+            // // Validate the URL (basic validation)
+            // if (!Uri.IsWellFormedUriString(searchModel.Url, UriKind.Absolute))
+            // {
+            //     errorMessage = "Invalid URL format.";
+            //     return;
+            // }
 
             string userSessionId = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "UserSessionId");
 
             // Simulate an HTTP POST request
             var response = await ApiService.FetchAndSaveLighthouseReportAsync(searchModel.Url, userSessionId);
 
+            StopTimer();
+            isLoading = false;
+            StateHasChanged();
+
             if (response.IsSuccessStatusCode)
             {
-
-
                 WebsiteAuditData = await response.Content.ReadFromJsonAsync<WebsiteData>();
 
 
@@ -170,8 +172,10 @@
 
                     // Trigger SweetAlert2 Toast Notification
                     await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
+                    StateHasChanged();
 
                     await Fetch6WebsitesByUserSessionId();
+                    StateHasChanged();
                 }
                 else
                 {
