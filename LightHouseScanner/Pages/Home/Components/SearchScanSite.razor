@@ -97,7 +97,6 @@
     public class SearchModel
     {
         [Required(ErrorMessage = "URL is required.")]
-        [Url(ErrorMessage = "Invalid URL format.")]
         [DomainOrSubdomain(ErrorMessage = "URL does not contain a valid domain or subdomain.")]
         public string Url { get; set; }
     }
