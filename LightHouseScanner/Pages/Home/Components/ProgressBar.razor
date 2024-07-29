@@ -1,0 +1,24 @@
+﻿@code {
+    [Parameter]
+    public int Percentage { get; set; }
+
+    private string GetProgressBarClass()
+    {
+        if (Percentage >= 90)
+            return "bg-success";
+        else if (Percentage >= 75)
+            return "bg-warning";
+        else if (Percentage >= 50)
+            return "bg-danger";
+        else if (Percentage >= 25)
+            return "bg-dark";
+        else
+            return "bg-dark";
+    }
+}
+
+<div class="progress" role="progressbar" aria-label="Default striped example"
+     aria-valuenow="@Percentage" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar progress-bar-striped @GetProgressBarClass()" style="width: @Percentage%">
+    </div>
+</div>
