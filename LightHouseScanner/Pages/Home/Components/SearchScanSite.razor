@@ -21,19 +21,39 @@
             <div class="col-lg-9" data-aos="fade-up" data-aos-delay="300">
                 <EditForm Model="@searchModel" OnValidSubmit="HandleSubmit" class="php-email-form">
                     <div class="sign-up-form">
-                        <InputText @bind-Value="searchModel.Url" placeholder="Enter Your URL or Company Website to scan..."
-                                   type="text" class="form-control m-0" />
+
 
                         @if (ButtonEnableDisable)
                         {
+
+                            <InputText @bind-Value="searchModel.Url" placeholder="Enter Your URL or Company Website to scan..."
+                                       type="text" class="form-control m-0" />
+
                             <div class="btn btn-outline-secondary ms-2" id="pasteContent" @onclick="@(async () => await PasteFromClipboard())">
                                 <i class="fa-solid fa-paste fs-6 pt-2"></i>
                             </div>
+                            <button type="submit" class="btn btn-warning ms-2 btn-lg text-nowrap d-block d-md-none">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
 
-                            <button type="submit" class="btn btn-warning ms-2 ps-5 pe-5 btn-lg text-nowrap">
+                            <button type="submit" class="btn btn-warning ms-2 ps-5 pe-5 btn-lg text-nowrap d-none d-md-block">
                                 <i class="fa-solid fa-magnifying-glass me-2"></i>
                                 Scan
                             </button>
+                         
+
+
+                            @* <div class="d-none d-md-block">
+                        <div class="btn btn-outline-secondary ms-2" id="pasteContent" @onclick="@(async () => await PasteFromClipboard())">
+                        <i class="fa-solid fa-paste fs-6 pt-2"></i>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning ms-2 ps-5 pe-5 btn-lg text-nowrap">
+                        <i class="fa-solid fa-magnifying-glass me-2"></i>
+                        Scan
+                        </button>
+                        </div> *@
+
                         }
                         else
                         {
