@@ -22,13 +22,11 @@
                 <EditForm Model="@searchModel" OnValidSubmit="HandleSubmit" class="php-email-form">
                     <div class="sign-up-form">
 
+                        <InputText @bind-Value="searchModel.Url" placeholder="Enter Your URL or Company Website to scan..."
+                                   type="text" class="form-control m-0" />
 
                         @if (ButtonEnableDisable)
                         {
-
-                            <InputText @bind-Value="searchModel.Url" placeholder="Enter Your URL or Company Website to scan..."
-                                       type="text" class="form-control m-0" />
-
                             <div class="btn btn-outline-secondary ms-2" id="pasteContent" @onclick="@(async () => await PasteFromClipboard())">
                                 <i class="fa-solid fa-paste fs-6 pt-2"></i>
                             </div>
@@ -40,27 +38,20 @@
                                 <i class="fa-solid fa-magnifying-glass me-2"></i>
                                 Scan
                             </button>
-                         
-
-
-                            @* <div class="d-none d-md-block">
-                        <div class="btn btn-outline-secondary ms-2" id="pasteContent" @onclick="@(async () => await PasteFromClipboard())">
-                        <i class="fa-solid fa-paste fs-6 pt-2"></i>
-                        </div>
-
-                        <button type="submit" class="btn btn-warning ms-2 ps-5 pe-5 btn-lg text-nowrap">
-                        <i class="fa-solid fa-magnifying-glass me-2"></i>
-                        Scan
-                        </button>
-                        </div> *@
-
                         }
                         else
                         {
-                            <button disabled type="submit" class="btn btn-info ms-2 ps-4 pe-4 btn-lg text-nowrap text-dark">
+                            <button disabled type="submit" class="btn btn-info ms-2 ps-4 pe-4 btn-lg text-nowrap text-dark d-none d-md-block">
                                 <span>
                                     <i class="fa-solid fa-spinner fa-spin-pulse me-2"></i>
                                     Scanning (@AdSenceApprovalCheckerTimerSecs)
+                                </span>
+                            </button>
+
+                            <button disabled type="submit" class="btn btn-info ms-2 ps-4 pe-4 btn-lg text-nowrap text-dark d-block d-md-none">
+                                <span>
+                                    <i class="fa-solid fa-spinner fa-spin-pulse me-2"></i>
+                                    (@AdSenceApprovalCheckerTimerSecs)
                                 </span>
                             </button>
                         }
