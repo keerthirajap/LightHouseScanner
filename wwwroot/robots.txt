@@ -1,0 +1,5 @@
+# Please do not watch our robots.txt, watch yours instead!
+
+User-agent: *
+Crawl-delay: 5
+Allow: /
