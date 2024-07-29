@@ -1,0 +1,40 @@
+﻿@inject IConfiguration _config
+
+<footer id="footer" class="footer position-relative light-background">
+
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <div class="col-lg-7 ps-4 col-md-12 footer-about">
+                <a href="/" class="text-dark fs-3 mb-2 d-flex align-items-center" title="Site Scan+ - Shine a Light on Your Website's Performance">
+                    <span class="sitename">About Site Scan+</span>
+                </a>
+                <p>Site Scan+ is your go-to tool for optimizing your website's performance, accessibility, best practices, and SEO.</p>
+                <p>Utilizing comprehensive Lighthouse reports, we help you identify weaknesses and enhance your site's overall user experience</p>
+                <p>Discover your site's full potential and achieve peak performance effortlessly with Site Scan+.</p>
+                <div class="social-links d-flex mt-0 ">
+                    <a href="https://twitter.com/keerthirajap" title="twitter profile"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://www.facebook.com/keerthirajaa/" title="facebook page"><i class="bi bi-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/keerthi-raja-prabakaran-91703231/" title="linkedin profile"><i class="bi bi-linkedin"></i></a>
+                </div>
+
+            </div>
+            <div class="col-lg-4 col-md-12 text-center">
+                @* <img src="@string.Concat(_config["AppUrl"] + "imgs/keerthi-raja-p.jpg")" class="img-fluid"
+                     alt="Site Scan+ Home" title="Site Scan Plus - In-Depth Lighthouse Analysis and Reports" /> *@
+               @*  <span class="text-dark fs-3 mt-0 mb-2 d-flex align-items-center">
+                    Keerthi Raja
+                </span> *@
+               
+            </div>           
+            
+        </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="sitename">SiteScan.Plus</strong> <span>All Rights Reserved</span></p>
+        <div class="credits">          
+            Designed by <a href="https://github.com/keerthirajap/LightHouseScanner/" title="SiteScan.Plus LightHouse Scanner GitHub page">Keerthi Raja P</a>
+        </div>
+    </div>
+
+</footer>

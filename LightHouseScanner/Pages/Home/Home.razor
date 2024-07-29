@@ -20,12 +20,12 @@
         <div class="row align-items-xl-center gy-5">
 
             <div class="col-xl-5 content">
-               
+
                 <h2 class="text-primary">SiteScan+</h2>
                 <p>
                     With a click of a button, get a detailed Lighthouse report highlighting key metrics and areas for improvement. Ensure your website meets the highest standards for performance and user satisfaction.
                 </p>
-               
+
             </div>
 
             <div class="col-xl-7">
@@ -80,7 +80,37 @@
 
 </section>
 
+<section id="call-to-action" class="call-to-action section dark-background">
 
+    <img src="@string.Concat(_config["AppUrl"] + "imgs/privacy-and-security-min.jpg" )"
+         class="opacity-50"
+         alt="privacy and security" title="site scan - privacy and security">
+
+    <div class="container">
+        <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
+            <div class="col-xl-10">
+                <div class="text-center">
+                    <p class="h2">Privacy and Security</p>
+                    <p class="mt-4 fs-5">
+                        We do not store personal information
+                    </p>
+                    <p class="fs-5">
+                        Yes, your data is secure with SiteScan.Plus
+                    </p>
+                    <p class="fs-5">
+                        We store scanned data for analysis and reporting purposes
+                    </p>
+                    <p class="fs-5">
+                        However, we ensure that your data remains confidential and secure
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<FAQ />
 @code {
 
     public string AppURL = string.Empty;
