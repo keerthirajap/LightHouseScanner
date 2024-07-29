@@ -3,3 +3,6 @@
 User-agent: *
 Crawl-delay: 5
 Allow: /
+
+
+Sitemap: https://sitescan.plus/sitemap.xml
