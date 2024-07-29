@@ -8,6 +8,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Content Remove="Pages\Home\Components\FAQ.razor" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="Pages\Home\Components\FAQ.razor" />
 		<None Include="wwwroot\assets\img\hero-img.svg" />
 		<None Include="wwwroot\assets\js\main.js" />
 		<None Include="wwwroot\assets\vendor\aos\aos.cjs.js" />
@@ -79,6 +84,9 @@
 	  <Content Update="wwwroot\appsettings.Production.json">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
+	  <Content Update="wwwroot\imgs\privacy-and-security-min.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
 	  <Content Update="wwwroot\imgs\site-scan-plus-home.jpg">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
@@ -95,6 +103,14 @@
 	  <Content Update="wwwroot\sitemap.xml">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <UpToDateCheckInput Remove="Pages\Home\Components\FAQ.razor" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <_ContentIncludedByDefault Remove="Pages\Home\Components\FAQ.razor" />
 	</ItemGroup>
 
 </Project>
