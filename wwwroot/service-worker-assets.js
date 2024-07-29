@@ -1921,6 +1921,14 @@
       "url": "images\/thumbs\/promo-video-thumbnail.jpg"
     },
     {
+      "hash": "sha256-suAuq5jxuRGFwtQiuDqEpYbTjhJhYMZx08YxKS54opk=",
+      "url": "imgs\/keerthi-raja-p.jpg"
+    },
+    {
+      "hash": "sha256-73kIaVCKrD5lnODFhrFNqCKUTc\/gEwZIFCzZbvvNgXc=",
+      "url": "imgs\/privacy-and-security-min.jpg"
+    },
+    {
       "hash": "sha256-yd\/bN57mM24AB7l9hxX7V17egmIChR1nL3qrfknn4ow=",
       "url": "imgs\/site-scan-plus-home.jpg"
     },
@@ -2005,7 +2013,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-SaXd6\/ZwQcDqcjxKWQSuzOaq\/4eKYE9NWNOkVSdPfLE=",
+      "hash": "sha256-7leDZ\/tuBXow8z3jD7nFoAlAFEWj2kN4VD\/\/QaCkD2E=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -2013,7 +2021,7 @@
       "url": "_framework\/Blazor-Analytics.wasm"
     },
     {
-      "hash": "sha256-mq1XDCRs3vXmPR8VjrxlWX35GC32mPd8A7yQDp95dUE=",
+      "hash": "sha256-Yf1DoaP8ljoF8MFi7l31QZtaBmwk4VwDO1j\/zvYGAZ4=",
       "url": "_framework\/LightHouseScanner.wasm"
     },
     {
@@ -2237,5 +2245,5 @@
       "url": "_content\/Toolbelt.Blazor.LoadingBar\/style.min.css"
     }
   ],
-  "version": "NcajxJpC"
+  "version": "KKxGSUS+"
 };
