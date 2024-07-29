@@ -2,11 +2,12 @@
 
 @inject IJSRuntime JSRuntime
 @inject ApiService ApiService
+@inject IConfiguration _config
 
 <section id="hero" class="hero section dark-background">
 
-    <img src="https://img.freepik.com/free-photo/futurism-perspective-digital-nomads-lifestyle_23-2151252419.jpg?t=st=1722161020~exp=1722164620~hmac=7f106f683909f1bdaf65bd77873114f1282857b0c7faaac9a3d4e750b1928d70&w=1380"
-         alt="" data-aos="fade-in" class="opacity-75">
+    <img src="@string.Concat(_config["AppUrl"] + "imgs/site-scan-plus-home.webp")"
+         alt="Site Scan+ Home" title="Site Scan Plus - In-Depth Lighthouse Analysis and Reports" data-aos="fade-in" class="opacity-75">
 
     <div class="container">
         <div class="row">

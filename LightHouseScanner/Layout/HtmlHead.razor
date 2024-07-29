@@ -1,0 +1,81 @@
+﻿@inject IConfiguration _config
+
+<PageTitle>@SeoModelData.Title</PageTitle>
+<HeadContent>
+    <meta name="description" content="@SeoModelData.Description">
+    <link rel="canonical" href="@SeoModelData.CanonicalURL">
+    <link rel="alternate" href="@SeoModelData.CanonicalURL" hreflang="en-us" />
+    <link rel="alternate" href="@SeoModelData.CanonicalURL" hreflang="x-default" />
+    <meta property="og:site_name" content="@SeoModelData.SiteName">
+    <meta property="og:type" content="@SeoModelData.OgType">
+    <meta property="og:title" content="@SeoModelData.Title">
+    <meta property="og:url" content="@SeoModelData.CanonicalURL">
+    <meta property="og:image" itemprop="image" content="@SeoModelData.OgImageURL">
+    <meta property="og:description" content="@SeoModelData.Description">
+    <meta property="og:image:type" content="@SeoModelData.OgImageType">
+    <meta property="og:image:width" content="@SeoModelData.OgImageWidth">
+    <meta property="og:image:height" content="@SeoModelData.OgImageHeight">
+    <meta property="og:image:alt" content="@SeoModelData.OgImageURLAlt">
+    <meta property="og:updated_time" content="@DateTime.Now.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ss")">
+    <meta property="og:publish_date" content="2024-07-29T00:00:00-0600">
+    <meta name="revised" content="@DateTime.Now.AddDays(-1).ToString("r")" />
+
+    @if (SeoModelData != null && SeoModelData.SeeAlso.Count > 0)
+    {
+        foreach (var item in SeoModelData.SeeAlso)
+        {
+            <meta property="og:see_also" content="@item">
+        }
+    }
+
+    <link itemprop="url" href="@SeoModelData.CanonicalURL">
+    <meta name="identifier-URL" content="@SeoModelData.CanonicalURL">
+    <link itemprop="description" href="@SeoModelData.Description">
+    <link itemprop="image" href="@SeoModelData.OgImageURL">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:widgets:theme" content="light">
+    <meta name="twitter:domain" content="sitescan.plus">
+    <meta name="twitter:site" content="@SeoModelData.TwitterSite">
+    <meta name="twitter:creator" content="@SeoModelData.TwitterSite">
+
+
+    <meta name="twitter:title" content="@SeoModelData.Title">
+    <meta name="twitter:description" content="@SeoModelData.Description">
+    <meta name="twitter:url" content="@SeoModelData.CanonicalURL">
+    <meta name="twitter:image" itemprop="image" content="@SeoModelData.OgImageURL">
+    <meta name="twitter:image:alt" content="@SeoModelData.OgImageURLAlt">
+
+    <meta name="publish_date" content="2024-07-29T00:00:00Z">
+    <meta name="modified_time" content="@DateTime.Now.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ss")">
+    <meta property="article:published_time" content="2024-07-29T00:00:00Z" />
+    <meta property="article:modified_time" content="@DateTime.Now.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ss")" />
+    <meta property="article:author" content="Developer" />
+
+    @if (SeoModelData.AllowRobots)
+    {
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+        <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    }
+    else
+    {
+        <meta name="prerender-status-code" content="404">
+        <meta name="robots" content="noindex" />
+    }
+
+    @if (SeoModelData != null && SeoModelData.Tags.Count > 0)
+    {
+        foreach (var item in SeoModelData.Tags)
+        {
+            <meta property="article:tag" content="@item">
+        }
+    }
+
+</HeadContent>
+
+@code {
+    [Parameter]
+    public SeoModel SeoModelData { get; set; } = new SeoModel();
+
+}

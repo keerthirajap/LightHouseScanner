@@ -3,20 +3,121 @@
 @using LightHouseScanner.Services
 @using LightHouseScanner.Pages.Home.Components
 
+@inject ApiService _apiService
+@inject IJSRuntime _jsRuntime
+@inject IConfiguration _config
+@inject NavigationManager _navManager
 
-@inject ApiService ApiService
-@inject IJSRuntime JSRuntime
-
-<PageTitle>Home</PageTitle>
-
+<HtmlHead SeoModelData="@HomePageSeoModel" />
 
 <SearchScanSite />
 <Top10BestWebsites />
 
+
+<section id="about" class="about section">
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-xl-center gy-5">
+
+            <div class="col-xl-5 content">
+               
+                <h2 class="text-primary">SiteScan+</h2>
+                <p>
+                    With a click of a button, get a detailed Lighthouse report highlighting key metrics and areas for improvement. Ensure your website meets the highest standards for performance and user satisfaction.
+                </p>
+               
+            </div>
+
+            <div class="col-xl-7">
+                <div class="row gy-4 icon-boxes">
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-box">
+                            <i class="fa-regular fa-lightbulb"></i>
+                            <h3>Shine A Light</h3>
+                            <p>Get comprehensive Lighthouse reports, improve your site's performance, accessibility, best practices, and SEO.</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-satellite-dish"></i>
+                            <h3>Real-Time Data</h3>
+                            <p>
+                                Stay ahead with up-to-date performance metrics and reports, and boost your site's speed and user experience.
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                        <div class="icon-box">
+                            <i class="fa-regular fa-file-lines"></i>
+                            <h3>Detailed Lighthouse reports</h3>
+                            <p>
+                                Identify and address issues affecting performance and accessibility.
+                                Ensure your website meets the highest standards for user experience.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-arrow-up-right-dots"></i>
+                            <h3>Optimize Your Site</h3>
+                            <p>
+                                Evaluate key metrics and areas for improvement with a single click.
+                                Ensure your site adheres to best practices and accessibility standards.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
 @code {
+
+    public string AppURL = string.Empty;
+    public SeoModel HomePageSeoModel = new SeoModel();
 
     protected override async Task OnInitializedAsync()
     {
+        AppURL = _config["AppUrl"];
+
+        HomePageSeoModel.Title = "SiteScan+ - Enhance Your Website's SEO and Speed";
+        HomePageSeoModel.Description = "Improve your site's performance and SEO with Site Scan+. Utilize Lighthouse reports for better accessibility and best practices.";
+        HomePageSeoModel.CanonicalURL = AppURL;
+        HomePageSeoModel.SiteName = "Comprehensive Website Performance Reports";
+        HomePageSeoModel.OgType = "website";
+        HomePageSeoModel.OgImageURL = _config["AppUrl"] + "imgs/site-scan-plus-improve-page-seo.jpg";
+        HomePageSeoModel.OgImageType = "image/jpg";
+        HomePageSeoModel.OgImageHeight = "1920";
+        HomePageSeoModel.OgImageWidth = "1080";
+        HomePageSeoModel.OgImageURLAlt = "Site Scan Plus offers detailed Lighthouse reports";
+
+        HomePageSeoModel.Tags.Add("Site Scan+");
+        HomePageSeoModel.Tags.Add("Site Scan Plus");
+        HomePageSeoModel.Tags.Add("SiteScan+");
+        HomePageSeoModel.Tags.Add("Site Scan +");
+        HomePageSeoModel.Tags.Add("SiteScanPlus");
+        HomePageSeoModel.Tags.Add("SiteScan.Plus");
+
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "get-organic-website-traffic");
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "increase-website-traffic-for-free");
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "drive-traffic-to-your-website");
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "get-social-media-traffic");
+
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "how-it-works");
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "sitemap");
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "signup");
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "signin");
+        // HomePageSeoModel.SeeAlso.Add(AppURL + "contactus");
+
     }
 
     // private async Task FetchTop10ReScannedWebsites()
