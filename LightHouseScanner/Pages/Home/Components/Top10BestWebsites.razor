@@ -18,7 +18,7 @@
                             <div class="card-img-top p-0">
                                 @if (!string.IsNullOrEmpty(website.FinalScreenshot))
                                 {
-                                    <img src="@website.FinalScreenshot" alt="Final Screenshot" class="img-fluid rounded float-end shadow">
+                                    <img src="@website.FinalScreenshot" alt="@website.DomainName for Final Screenshot" class="img-fluid rounded float-end shadow">
                                 }
                                 else
                                 {
