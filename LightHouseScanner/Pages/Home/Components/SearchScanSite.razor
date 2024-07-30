@@ -169,8 +169,8 @@
                 if (string.IsNullOrEmpty(WebsiteAuditData.Message))
                 {
                     isSuccess = true;
-                    JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
                     await JSRuntime.InvokeVoidAsync("scrollDown").AsTask();
+                    JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
                     StateHasChanged();
                     await Fetch6WebsitesByUserSessionId();
 
