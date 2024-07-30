@@ -365,30 +365,6 @@
       "url": "assets\/vendor\/aos\/aos.js.map"
     },
     {
-      "hash": "sha256-T\/pr6kME0u2kGGg\/ViYWhe1HvwCZUDnyflrWLVOTjS0=",
-      "url": "assets\/vendor\/bootstrap-icons\/bootstrap-icons.css"
-    },
-    {
-      "hash": "sha256-TMYGYsQDe5V5\/OAo2OI4cMgZ6ehfh\/PP5VEO5VcQAgA=",
-      "url": "assets\/vendor\/bootstrap-icons\/bootstrap-icons.json"
-    },
-    {
-      "hash": "sha256-9kPW\/n5nn53j4WMRYAxe9c1rCY96Oogo\/MKSVdKzPmI=",
-      "url": "assets\/vendor\/bootstrap-icons\/bootstrap-icons.min.css"
-    },
-    {
-      "hash": "sha256-L2O9CNj25w3mIhd3+sjyd0GsRqdTtPDdgdennKEaG58=",
-      "url": "assets\/vendor\/bootstrap-icons\/bootstrap-icons.scss"
-    },
-    {
-      "hash": "sha256-ux3pibg5cPb05U3hzZdMXLpVtzWC2l4bIlptDt8ClIM=",
-      "url": "assets\/vendor\/bootstrap-icons\/fonts\/bootstrap-icons.woff"
-    },
-    {
-      "hash": "sha256-R2rfQrQDJQmPz6izarPnaRhrtPbOaiSXU+LhqcIr+Z4=",
-      "url": "assets\/vendor\/bootstrap-icons\/fonts\/bootstrap-icons.woff2"
-    },
-    {
       "hash": "sha256-Yy5\/hBqRmmU2MJ1TKwP2aXoTO6+OjzrLmJIsC2Wy4H8=",
       "url": "assets\/vendor\/bootstrap\/css\/bootstrap-grid.css"
     },
@@ -697,10 +673,6 @@
       "url": "assets\/vendor\/isotope-layout\/isotope.pkgd.min.js"
     },
     {
-      "hash": "sha256-T+9XfTYy+Ahi5V0Tdn9enjfZRaChsTBvIbBw4a5eTBs=",
-      "url": "assets\/vendor\/php-email-form\/validate.js"
-    },
-    {
       "hash": "sha256-a2jlredC8cQemNSnBS3Ppp3opZYcMhRK3uFQkQmQYP8=",
       "url": "assets\/vendor\/purecounter\/purecounter_vanilla.js"
     },
@@ -723,6 +695,14 @@
     {
       "hash": "sha256-8YgGZCFhupffUnK1Vd78vQJHM4ksLDqmdUfqaJPHTrU=",
       "url": "browserconfig.xml"
+    },
+    {
+      "hash": "sha256-yHqrAnradcdYadN+50sR7VymaX89hkoCU5EgvJPbn5g=",
+      "url": "css\/app-bundles.css"
+    },
+    {
+      "hash": "sha256-nebj6bVcExvRAh5EiJsSqH0Y7bnQ0M6KputqgaI+EEk=",
+      "url": "css\/app-bundles.min.css"
     },
     {
       "hash": "sha256-\/+MTE2kXlEbng\/34NOcFYK9cxcybtZB3RXJ+wJ3duGk=",
@@ -751,118 +731,6 @@
     {
       "hash": "sha256-oEo6d+KqX5fjxTiZk\/w9NB3Mi0+ycS5yLwCKwr4IkbA=",
       "url": "icon-512.png"
-    },
-    {
-      "hash": "sha256-wEegImUFEVxOX1Cg2lrmP3PJ3PT+gYP82ELUJT7GOaE=",
-      "url": "images\/about\/story-slider-01.jpg"
-    },
-    {
-      "hash": "sha256-XhZmgJcV\/Io5NBy2a49PMv7gZHzvdaieQ0zdUHA5tWc=",
-      "url": "images\/app\/appple-store.jpg"
-    },
-    {
-      "hash": "sha256-MRojwGAbHsrBabnSu9rUbKsf9tfabtGepayptX80De4=",
-      "url": "images\/app\/google-play.jpg"
-    },
-    {
-      "hash": "sha256-cfGKUfbixysL9ALw3v1ivhv8PZH1pPctaZdRSp5eMt8=",
-      "url": "images\/background\/comming-soon.jpg"
-    },
-    {
-      "hash": "sha256-mUKgrB9LugZh3H8sEeevPLzIN996QFU+t8j\/jbMXbtk=",
-      "url": "images\/background\/promo-video-back.jpg"
-    },
-    {
-      "hash": "sha256-yVUQpsP9K5huAmzZ7qsbr4oXRmWDW2404YmMb+SPD14=",
-      "url": "images\/blog\/post-01.jpg"
-    },
-    {
-      "hash": "sha256-\/dX\/y5eveHZiunOW2ZPJPlROyhgbdLET8MZGB3wJ2P0=",
-      "url": "images\/blog\/post-02.jpg"
-    },
-    {
-      "hash": "sha256-2Jnu+3lbAGpmfdJX2Bysm6l87ex3N3D4fB+mpa4EQDs=",
-      "url": "images\/blog\/post-03.jpg"
-    },
-    {
-      "hash": "sha256-Ab2Pv3jL\/zlciiRIj+lAt8MYl87tFiByMo0RNcC3B6w=",
-      "url": "images\/blog\/post-body-image.jpg"
-    },
-    {
-      "hash": "sha256-s5Xy+7EwAt2xwKAuJgPq40pBqjwoKjYJerx3jpKMMXw=",
-      "url": "images\/blog\/single-blog-feature-image.jpg"
-    },
-    {
-      "hash": "sha256-LNFcdjkWbXqs6G6H9ryUTx0YczwVnqyL72kanDxu\/Sk=",
-      "url": "images\/clients\/business-finder.png"
-    },
-    {
-      "hash": "sha256-7bTwOIIzLwzX0F+yo7JD8TECg53lZROpbfmMUdjO9O0=",
-      "url": "images\/clients\/buzz-feed.png"
-    },
-    {
-      "hash": "sha256-WPtBrjRYhSCozFSaPqzfNBWleI5+qGllk8AV5oQ5M5c=",
-      "url": "images\/clients\/forbes.png"
-    },
-    {
-      "hash": "sha256-3XQpafS4kj3j2NV+Y3wmqxYq40uCIUucK1bZK8qpP1w=",
-      "url": "images\/clients\/tech-crunch-new.png"
-    },
-    {
-      "hash": "sha256-mqGN6bUTiLfffI\/zVfZSo2U0WU3XgL0e9EPUYe4eRII=",
-      "url": "images\/clients\/tech-crunch.png"
-    },
-    {
-      "hash": "sha256-78zQYqejzqrEwJxGS3KJ+h0JbkkAyQoFth183Ssgza4=",
-      "url": "images\/clients\/the-new-york-times.png"
-    },
-    {
-      "hash": "sha256-LOrZG8LQH7JpvyjWyzgG2YrC9NgYCjGFx0VoQ2U7b\/M=",
-      "url": "images\/clients\/the-washington-post.png"
-    },
-    {
-      "hash": "sha256-CuCX0Mec9HKcmt\/MuU9CqkzV+\/Tvduh1Db1wQyUQJTg=",
-      "url": "images\/clients\/venture-beat.png"
-    },
-    {
-      "hash": "sha256-LPbAXC2wZKY2UTGpqrs5B0K1S4A3GN9sqPMnfi6tzMI=",
-      "url": "images\/favicon.png"
-    },
-    {
-      "hash": "sha256-Jxhru\/keLa3BgWEv9PndsGiGGAlmHTBr05siiBt5faw=",
-      "url": "images\/feature\/feature-new-01.jpg"
-    },
-    {
-      "hash": "sha256-pa+N0gGQzyx\/x0CIJXrFXrs6DpUtyxeCa+zpfd2AL6s=",
-      "url": "images\/feature\/feature-new-02.jpg"
-    },
-    {
-      "hash": "sha256-oxmv93QPJePojpZLQfhNJSMcoMMC60TsFdM\/AA\/fdYE=",
-      "url": "images\/feature\/featured-article.jpg"
-    },
-    {
-      "hash": "sha256-mKU3pmEakqWYf0ijJEmIo4fWKmrOrxYGwHuZm55zGbI=",
-      "url": "images\/feature\/ipad-lied.jpg"
-    },
-    {
-      "hash": "sha256-v2vzWk5+x6LiJHPVpOv59QjzTZu5B4BQ\/j+MiGXqSZs=",
-      "url": "images\/feature\/ipad.jpg"
-    },
-    {
-      "hash": "sha256-uS8aTfYSXUNrkZe0Y8HaMASykl1CglIPebhkqaD+aKI=",
-      "url": "images\/feature\/iphone-black.jpg"
-    },
-    {
-      "hash": "sha256-Aefd+T\/wjz\/tVIVbNjbtav4RGqqtsa3rGLBJEcfJ41w=",
-      "url": "images\/feature\/iphone-ipad.jpg"
-    },
-    {
-      "hash": "sha256-pOt+dQq0WK6Di+zo76mAf8u09rCO70O6tp4ZQLbPtKg=",
-      "url": "images\/feature\/iphone-lied.jpg"
-    },
-    {
-      "hash": "sha256-Eq5YsiSbTvEOQcumCSTr3NC+NbaMc1fCHaPTbsT7cNQ=",
-      "url": "images\/feature\/iphone.jpg"
     },
     {
       "hash": "sha256-ySoYP6+v06Oqec5H2BNECoyVTvrxhKX4FiHqIZwtGV4=",
@@ -1845,82 +1713,6 @@
       "url": "images\/Flags-Icon-Set\/ZW.png"
     },
     {
-      "hash": "sha256-q6ybfYjd2\/g2GA3eZT4aM+EHWN2M9zSwDy\/J9RAH2mA=",
-      "url": "images\/gallery\/gallery-01.jpg"
-    },
-    {
-      "hash": "sha256-38OQIqjbws52DzFQGiZ2LJTlJK\/AngyI4\/5ztiDb\/eM=",
-      "url": "images\/gallery\/gallery-02.jpg"
-    },
-    {
-      "hash": "sha256-ci\/sVF2nSY\/GPwmzQ6PJaQVWhIr4dm43E09X+X6ss\/E=",
-      "url": "images\/gallery\/gallery-03.jpg"
-    },
-    {
-      "hash": "sha256-03WlgNVWOTtEKDi3rtOO7EtcUVPOOsJWTsD2FisELLc=",
-      "url": "images\/icons\/supported-services.png"
-    },
-    {
-      "hash": "sha256-PliDUG1o9qdLMT1JmM8YKA3gu6U8ZNoZLc5L6WMFXiE=",
-      "url": "images\/Login\/front-desk-sign-in.jpg"
-    },
-    {
-      "hash": "sha256-4emmzOGFlC1EQPRYI1rMXUZR74dZQ0AC6kvrnJzQPL8=",
-      "url": "images\/Login\/sign-up.jpg"
-    },
-    {
-      "hash": "sha256-XNLS+jqmqFzkY7\/mY1gt4TK2LtrJH4\/YJREOWEzxrcg=",
-      "url": "images\/logo-alt.png"
-    },
-    {
-      "hash": "sha256-MeZE\/xbCjlhugbOLJFmhLzKM582w55CFmj9gNyQsHlE=",
-      "url": "images\/logo.png"
-    },
-    {
-      "hash": "sha256-PbdyYkeXtRfmGk7DFmYCTyvI5SOLDxiblwHS+EnVKQQ=",
-      "url": "images\/mobile.png"
-    },
-    {
-      "hash": "sha256-fM1e\/tMCsHvB2vSYpUai1p9mDK9qmaMjJ4jUG7ZXR\/s=",
-      "url": "images\/team\/design-team-01.jpg"
-    },
-    {
-      "hash": "sha256-jtB5pNKvt3C7CYN\/Ij3wXSFW8Y3vmjflNfPuXZOXFBw=",
-      "url": "images\/team\/design-team-02.jpg"
-    },
-    {
-      "hash": "sha256-71OAI5Mc0HoLth3KD5O\/YJCy1BWArQ49YEGIqqPXGRY=",
-      "url": "images\/team\/design-team-03.jpg"
-    },
-    {
-      "hash": "sha256-XyhYno1GQoR2AOsBhBISjPQ58S37PdKdT2eDzj9PAPY=",
-      "url": "images\/team\/featured-person-01.jpg"
-    },
-    {
-      "hash": "sha256-aCxsxxkOtEAhCVHrHdUlr2SHRwCN12GEERFUW+BhJKc=",
-      "url": "images\/team\/featured-person-02.jpg"
-    },
-    {
-      "hash": "sha256-B2wvbfyUctlzcD4huQA1hlKt6BsFa4OIUayImwkwsPI=",
-      "url": "images\/team\/marketing-team-01.jpg"
-    },
-    {
-      "hash": "sha256-werWKKWTEAoETWEKH1e8fANZUkzyQrfX9Z7d1k2Z7wA=",
-      "url": "images\/team\/marketing-team-02.jpg"
-    },
-    {
-      "hash": "sha256-xRF\/ua\/UhJu1g+sXuZNQzAPX1Ss9YCIxBchr+3Rm8U0=",
-      "url": "images\/team\/marketing-team-03.jpg"
-    },
-    {
-      "hash": "sha256-\/qI1M4slyjPd7jtyZQuBuKpFl8a4sAb5CGX8\/j2vwFY=",
-      "url": "images\/testimonial\/feature-testimonial-thumb.jpg"
-    },
-    {
-      "hash": "sha256-pgvM1391BoOerMl+PZuN3zGpctw2F2AVOoHZHkiF8vw=",
-      "url": "images\/thumbs\/promo-video-thumbnail.jpg"
-    },
-    {
       "hash": "sha256-suAuq5jxuRGFwtQiuDqEpYbTjhJhYMZx08YxKS54opk=",
       "url": "imgs\/keerthi-raja-p.jpg"
     },
@@ -1937,8 +1729,16 @@
       "url": "imgs\/site-scan-plus-improve-page-seo.jpg"
     },
     {
-      "hash": "sha256-bHh9lqqGrMiXhz39yo9fKPKUpVjtmXLJBXbjaa6XVvU=",
+      "hash": "sha256-Y+TrTOSaOsYWcMmuFCy\/oKbw32c06p6ErYf1JkoIY7c=",
       "url": "index.html"
+    },
+    {
+      "hash": "sha256-a2ZAWy\/Im73wjgSyWMkgbhNyCEDvZs73S5IWq8l1nik=",
+      "url": "js\/app-bundles.js"
+    },
+    {
+      "hash": "sha256-Jna+IdSi39l4WKcclj1vfdum5ycXC3m6lwxJDE+OmKM=",
+      "url": "js\/app-bundles.min.js"
     },
     {
       "hash": "sha256-25KKpVe\/ObBaC0qe3+Pyf1ClEi7AQo\/Z8l1E9SZuVDg=",
@@ -2013,7 +1813,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-Ni28CyvLDmDX3gpNpeMaHz29zq1L6gPNk5h5isgeN14=",
+      "hash": "sha256-F9AYQQaoLnQ0vuBmWz18Q08llMM0L5yv9LZewBv1zrk=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -2021,7 +1821,7 @@
       "url": "_framework\/Blazor-Analytics.wasm"
     },
     {
-      "hash": "sha256-Ns4M5XdvYyUQQn4AWdZp7GXreleUz5apEqTeGqQ7FJs=",
+      "hash": "sha256-tH0QFES2amdUL9ih3qoKFMwLfSw0a\/li33Wj3PGhv9Y=",
       "url": "_framework\/LightHouseScanner.wasm"
     },
     {
@@ -2245,5 +2045,5 @@
       "url": "_content\/Toolbelt.Blazor.LoadingBar\/style.min.css"
     }
   ],
-  "version": "hzSBM4q6"
+  "version": "XqWdpaT1"
 };
