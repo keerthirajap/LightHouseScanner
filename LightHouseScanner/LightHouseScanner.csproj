@@ -6,8 +6,8 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
 
-		<!--<RunAOTCompilation>true</RunAOTCompilation>-->
-		<!--<BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>-->
+		<RunAOTCompilation>true</RunAOTCompilation>
+		<BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
 	</PropertyGroup>
 	
 	<ItemGroup>
