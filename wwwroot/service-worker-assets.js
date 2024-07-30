@@ -2013,7 +2013,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-fkFVe\/8\/6Tb2HRi29AfBtIHh2AxR1yKOLRTg9XJOpKU=",
+      "hash": "sha256-RAtXpevdzJ5JUwk5jMUS5tNYlgJS9rL6UGYp+g4Cgt4=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -2021,7 +2021,7 @@
       "url": "_framework\/Blazor-Analytics.wasm"
     },
     {
-      "hash": "sha256-PRjnH0yPyKlA0I+hRiHaNvPGDzF0LamyWF1Bdsdp83I=",
+      "hash": "sha256-C5i87Gm17lfEo6CDFGWBAP+NvD9kq4WO6mC7n6jJVs0=",
       "url": "_framework\/LightHouseScanner.wasm"
     },
     {
@@ -2245,5 +2245,5 @@
       "url": "_content\/Toolbelt.Blazor.LoadingBar\/style.min.css"
     }
   ],
-  "version": "WcwdkBT4"
+  "version": "vg0\/i8nB"
 };
