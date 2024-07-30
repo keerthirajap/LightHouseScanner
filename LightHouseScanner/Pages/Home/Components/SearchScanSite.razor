@@ -167,21 +167,30 @@
 
                 if (string.IsNullOrEmpty(WebsiteAuditData.Message))
                 {
-                    await JSRuntime.InvokeVoidAsync("scrollDown");
                     isSuccess = true;
-
-                    // Trigger SweetAlert2 Toast Notification
                     await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
-                    StateHasChanged();
+                    JSRuntime.InvokeVoidAsync("scrollDown");
 
-                    await Fetch6WebsitesByUserSessionId();
-                    StateHasChanged();
+                    var scrollDownTask = JSRuntime.InvokeVoidAsync("scrollDown").AsTask();
+                    // var showToastTask = .AsTask();
+                    // var fetchWebsitesTask = Fetch6WebsitesByUserSessionId();
+
+                    // await Task.WhenAll(scrollDownTask, showToastTask, fetchWebsitesTask);
+                    //StateHasChanged();
+                    // await JSRuntime.InvokeVoidAsync("scrollDown");
+
+
+                    // // Trigger SweetAlert2 Toast Notification
+                    // await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
+
+
+                    Fetch6WebsitesByUserSessionId();
                 }
                 else
                 {
                     // Trigger SweetAlert2 Toast Notification
                     await JSRuntime.InvokeVoidAsync("showToast", "error", WebsiteAuditData.Message);
-
+                    StateHasChanged();
                 }
             }
             else
@@ -190,6 +199,7 @@
                 // Handle error
                 errorMessage = "An error occurred while fetching the report.";
                 WebsiteAuditData = new WebsiteData();
+                StateHasChanged();
             }
         }
         catch (Exception ex)
@@ -200,9 +210,8 @@
         {
             StopTimer();
             isLoading = false;
-        }
-
-        StateHasChanged();
+            StateHasChanged();
+        }        
     }
 
     private void AdSenceApprovalCheckerTimerAsync(object sender, ElapsedEventArgs e)
