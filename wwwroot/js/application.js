@@ -11,12 +11,12 @@ window.scrollDown = function () {
 
     console.log("scrollDown");
 
-    smoothScrollBy(500, 3000); 
+    //smoothScrollBy(500, 500); 
 
-    //window.scrollBy({
-    //    top: 500, // Adjust this value to control how much to scroll
-    //    behavior: 'smooth'
-    //});
+    window.scrollBy({
+        top: 500, // Adjust this value to control how much to scroll
+        behavior: 'smooth'
+    });
 };
 
 
