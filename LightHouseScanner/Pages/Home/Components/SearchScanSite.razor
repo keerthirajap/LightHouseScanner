@@ -169,22 +169,26 @@
                 {
                     isSuccess = true;
                     await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
-                    JSRuntime.InvokeVoidAsync("scrollDown");
-
-                    var scrollDownTask = JSRuntime.InvokeVoidAsync("scrollDown").AsTask();
-                    // var showToastTask = .AsTask();
-                    // var fetchWebsitesTask = Fetch6WebsitesByUserSessionId();
-
-                    // await Task.WhenAll(scrollDownTask, showToastTask, fetchWebsitesTask);
-                    //StateHasChanged();
-                    // await JSRuntime.InvokeVoidAsync("scrollDown");
-
-
-                    // // Trigger SweetAlert2 Toast Notification
-                    // await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
-
-
+                    await JSRuntime.InvokeVoidAsync("scrollDown").AsTask();
                     Fetch6WebsitesByUserSessionId();
+
+                    // await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
+                    // JSRuntime.InvokeVoidAsync("scrollDown");
+
+                    // var scrollDownTask = JSRuntime.InvokeVoidAsync("scrollDown").AsTask();
+                    // // var showToastTask = .AsTask();
+                    // // var fetchWebsitesTask = Fetch6WebsitesByUserSessionId();
+
+                    // // await Task.WhenAll(scrollDownTask, showToastTask, fetchWebsitesTask);
+                    // //StateHasChanged();
+                    // // await JSRuntime.InvokeVoidAsync("scrollDown");
+
+
+                    // // // Trigger SweetAlert2 Toast Notification
+                    // // await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
+
+
+                    // Fetch6WebsitesByUserSessionId();
                 }
                 else
                 {
