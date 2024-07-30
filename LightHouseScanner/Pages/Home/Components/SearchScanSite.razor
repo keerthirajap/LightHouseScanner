@@ -27,14 +27,14 @@
 
                         @if (ButtonEnableDisable)
                         {
-                            <div class="btn btn-outline-secondary ms-2" id="pasteContent" @onclick="@(async () => await PasteFromClipboard())">
+                            <div class="btn btn-outline-secondary ms-2" id="pasteContent" @onclick="@(async () => await PasteFromClipboard())" aria-label="Paste Content">
                                 <i class="fa-solid fa-paste fs-6 pt-2"></i>
                             </div>
-                            <button type="submit" class="btn btn-warning ms-2 btn-lg text-nowrap d-block d-md-none">
+                            <button type="submit" class="btn btn-warning ms-2 btn-lg text-nowrap d-block d-md-none" id="btnScanURL-Small" aria-label="Scan URL">
                                 <i class="fa-solid fa-magnifying-glass"></i>
                             </button>
 
-                            <button type="submit" class="btn btn-warning ms-2 ps-5 pe-5 btn-lg text-nowrap d-none d-md-block">
+                            <button type="submit" class="btn btn-warning ms-2 ps-5 pe-5 btn-lg text-nowrap d-none d-md-block" id="btnScanURL-Big" aria-label="Scan URL Big">
                                 <i class="fa-solid fa-magnifying-glass me-2"></i>
                                 Scan
                             </button>
