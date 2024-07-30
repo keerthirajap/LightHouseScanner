@@ -164,13 +164,15 @@
             {
                 WebsiteAuditData = await response.Content.ReadFromJsonAsync<WebsiteData>();
 
+                StateHasChanged();
 
                 if (string.IsNullOrEmpty(WebsiteAuditData.Message))
                 {
                     isSuccess = true;
-                    await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
+                    JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
                     await JSRuntime.InvokeVoidAsync("scrollDown").AsTask();
-                    Fetch6WebsitesByUserSessionId();
+                    StateHasChanged();
+                    await Fetch6WebsitesByUserSessionId();
 
                     // await JSRuntime.InvokeVoidAsync("showToast", "success", "Audit completed successfully!");
                     // JSRuntime.InvokeVoidAsync("scrollDown");
