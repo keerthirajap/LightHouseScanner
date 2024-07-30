@@ -1937,7 +1937,7 @@
       "url": "imgs\/site-scan-plus-improve-page-seo.jpg"
     },
     {
-      "hash": "sha256-VPlbHYzTMNBMA8WiksUDf3pu6NLrax\/tNBoa5tNhMr4=",
+      "hash": "sha256-bHh9lqqGrMiXhz39yo9fKPKUpVjtmXLJBXbjaa6XVvU=",
       "url": "index.html"
     },
     {
@@ -2013,7 +2013,7 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-BL2gNrwihvQQhehhH3pyu1GPd6Yn21eR4FpXeKiPOTA=",
+      "hash": "sha256-jkvI0jYSpkq0YGVAEqM9mZ1TYy8UtcJ5A0KWWFp\/0Qg=",
       "url": "_framework\/blazor.boot.json"
     },
     {
@@ -2021,7 +2021,7 @@
       "url": "_framework\/Blazor-Analytics.wasm"
     },
     {
-      "hash": "sha256-R\/SOo9PyBpkUr+vHCcRp9TpElF5jsYJv51rE6ZMytlQ=",
+      "hash": "sha256-78tCmZfPWXs9hu6Ozrplo+sQTTi0UyugXKzVM378wRg=",
       "url": "_framework\/LightHouseScanner.wasm"
     },
     {
@@ -2245,5 +2245,5 @@
       "url": "_content\/Toolbelt.Blazor.LoadingBar\/style.min.css"
     }
   ],
-  "version": "LH\/YeICV"
+  "version": "9\/JEAwlk"
 };
