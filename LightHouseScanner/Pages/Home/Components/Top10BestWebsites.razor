@@ -13,12 +13,12 @@
             {
                 @foreach (var website in websiteDataList)
                 {
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-md-6 col-lg-4 mb-4">
                         <div class="card shadow-sm p-1">
-                            <div class="card-img-top p-0">
+                            <div class="card-img-top p-0 text-center">
                                 @if (!string.IsNullOrEmpty(website.FinalScreenshot))
                                 {
-                                    <img src="@website.FinalScreenshot" alt="@website.DomainName for Final Screenshot" class="img-fluid rounded float-end shadow">
+                                    <img src="@website.FinalScreenshot" alt="@website.DomainName for Final Screenshot" class="img-fluid rounded shadow">
                                 }
                                 else
                                 {
@@ -26,8 +26,8 @@
                                 }
                             </div>
                             <div class="card-body text-center">
-                                <span class="card-title text-center mt-2">
-                                    <a href="@website.DomainName" target="_blank" class="anchor-hover h5">
+                                <span class="card-title text-center mt-2 text-break">
+                                    <a href="@website.DomainName" target="_blank" class="anchor-hover fs-5 fw-normal">
                                         @website.DomainName
                                     </a>
                                 </span>
